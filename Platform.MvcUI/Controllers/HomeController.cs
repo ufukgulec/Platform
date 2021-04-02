@@ -15,7 +15,7 @@ namespace Platform.MvcUI.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            IGenericService<Person> service = new GenericManager<Person>(new EfGenericRepository<Person>());
+            IEntryService service = new EntryManager(new EfEntryRepository());
             return View();
         }
     }

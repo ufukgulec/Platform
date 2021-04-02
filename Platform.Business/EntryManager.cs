@@ -17,5 +17,37 @@ namespace Platform.Business
         {
             _entryRepository = entryRepository;
         }
+        /// <summary>
+        /// IsValid değeri TRUE olan Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
+        public List<Entry> ActiveEntryGetAll()
+        {
+            return _entryRepository.ActiveEntryGetAll();
+        }
+        /// <summary>
+        /// Eskiden Yeniye Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
+        public List<Entry> OldToNewEntryGetAll()
+        {
+            return _entryRepository.OldToNewEntryGetAll();
+        }
+        /// <summary>
+        /// Belli bir tarihteki Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
+        public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
+        {
+            return _entryRepository.PastHistoryEntryGetAll(dateTime);
+        }
+        /// <summary>
+        /// Bugünkü Entry Listesi
+        /// </summary>
+        /// <returns>List<Entry></returns>
+        public List<Entry> TodayEntryGetAll()
+        {
+            return _entryRepository.TodayEntryGetAll();
+        }
     }
 }
