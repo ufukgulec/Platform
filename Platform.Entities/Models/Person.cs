@@ -6,38 +6,43 @@ namespace Platform.Entities.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Entry")]
-    public partial class Entry
+    [Table("Person")]
+    public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Entry()
+        public Person()
         {
+            Entries = new HashSet<Entry>();
             Likes = new HashSet<Like>();
             Replies = new HashSet<Reply>();
         }
 
-        public int EntryID { get; set; }
+        public int PersonID { get; set; }
 
         [StringLength(50)]
-        public string EntryTitle { get; set; }
+        public string PersonName { get; set; }
 
-        public string EntryArticle { get; set; }
+        [StringLength(100)]
+        public string PersonSurname { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? EntryDate { get; set; }
+        public string PersonMail { get; set; }
+
+        [StringLength(50)]
+        public string Username { get; set; }
+
+        public string Password { get; set; }
 
         public bool? IsValid { get; set; }
 
-        public int? PersonID { get; set; }
+        public int? PersonTypeID { get; set; }
 
-        public int? TagID { get; set; }
-
-        public virtual Person Person { get; set; }
-
-        public virtual Tag Tag { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Entry> Entries { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
+
+        public virtual PersonType PersonType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reply> Replies { get; set; }

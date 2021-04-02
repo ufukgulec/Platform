@@ -6,26 +6,21 @@ namespace Platform.Entities.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Tag")]
-    public partial class Tag
+    [Table("PersonType")]
+    public partial class PersonType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tag()
+        public PersonType()
         {
-            Entries = new HashSet<Entry>();
+            People = new HashSet<Person>();
         }
 
-        public int TagID { get; set; }
+        public int PersonTypeID { get; set; }
 
         [StringLength(50)]
-        public string TagName { get; set; }
-
-        [StringLength(100)]
-        public string TagDescription { get; set; }
-
-        public bool? IsValid { get; set; }
+        public string PersonTypeName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Entry> Entries { get; set; }
+        public virtual ICollection<Person> People { get; set; }
     }
 }

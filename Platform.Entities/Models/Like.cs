@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Platform.Entities.Models
 {
-    public class Like
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("Like")]
+    public partial class Like
     {
         public int LikeID { get; set; }
-        public DateTime LikeDate { get; set; }
-        public int EntryID { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? LikeDate { get; set; }
+
+        public int? EntryID { get; set; }
+
+        public int? PersonID { get; set; }
+
         public virtual Entry Entry { get; set; }
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+
+        public virtual Person Person { get; set; }
     }
 }
