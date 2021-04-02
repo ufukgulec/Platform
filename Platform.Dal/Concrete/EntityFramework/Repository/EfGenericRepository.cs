@@ -12,10 +12,10 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
-        PlatformContext _context;
-        public EfGenericRepository(PlatformContext context)
+        public PlatformContext _context;
+        public EfGenericRepository()
         {
-            _context = context;
+            _context = new PlatformContext();
         }
 
         public T Add(T entity)

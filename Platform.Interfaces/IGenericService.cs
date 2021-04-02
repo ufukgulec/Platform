@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Platform.Interfaces
 {
-    public interface IGenericService<T>
+    public interface IGenericService<T> where T : class
     {
         /// <summary>
         /// T varlığını ekleme
