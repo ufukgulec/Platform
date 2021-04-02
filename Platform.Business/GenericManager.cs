@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Business
 {
-    public class GenericManager<T> : IGenericService<T> where T:class
+    public class GenericManager<T> : IGenericService<T> where T : class
     {
         private readonly IGenericRepository<T> _genericRepository;
-
         public GenericManager(IGenericRepository<T> genericRepository)
         {
             _genericRepository = genericRepository;
