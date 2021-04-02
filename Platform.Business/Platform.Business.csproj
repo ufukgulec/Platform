@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Platform.Dal\Platform.Dal.csproj">
+      <Project>{F99A043D-DCA7-467B-92AC-14B852F040F2}</Project>
+      <Name>Platform.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform.Interfaces\Platform.Interfaces.csproj">
+      <Project>{3a5b8244-9c1c-435a-bcd6-4b0779770921}</Project>
+      <Name>Platform.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
