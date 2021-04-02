@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Platform.Interfaces
 {
+    /// <summary>
+    /// Genel sınıflar için oluşturulmuş arabirim sınıfıdır. Sınıflar ile çalışır.
+    /// </summary>
+    /// <typeparam name="T">Varlık Sınıfları</typeparam>
     public interface IGenericService<T> where T : class
     {
         /// <summary>

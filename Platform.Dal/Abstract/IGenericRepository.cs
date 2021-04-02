@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Platform.Dal.Abstract
 {
+    /// <summary>
+    /// Genel sınıflar için oluşturulmuş arabirim sınıf
+    /// </summary>
+    /// <typeparam name="T">Varlık Sınıfı</typeparam>
     public interface IGenericRepository<T>
     {
         /// <summary>

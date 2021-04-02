@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Dal.Concrete.EntityFramework.Repository
 {
+    /// <summary>
+    /// Person için oluşturulmuş repositorydir. Kalıtım aldığı sınıf => EfGenericRepository Kullandığı arabirim => IPersonRepository
+    /// </summary>
     public class EfPersonRepository : EfGenericRepository<Person>, IPersonRepository
     {
         public EfPersonRepository() : base()

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Business
 {
+    /// <summary>
+    /// Personların veritabanı iletişim sınıfıdır. Kalıtım aldığı sınıf => GenericManager Kullandığı arabirim => IPersonService
+    /// </summary>
     public class PersonManager : GenericManager<Person>, IPersonService
     {
         IPersonRepository _personRepository;

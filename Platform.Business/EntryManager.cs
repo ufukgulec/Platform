@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Business
 {
+    /// <summary>
+    /// Entrylerin veritabanı iletişim sınıfıdır. Kalıtım aldığı sınıf => GenericManager Kullandığı arabirim => IEntryService
+    /// </summary>
     public class EntryManager : GenericManager<Entry>, IEntryService
     {
         IEntryRepository _entryRepository;
@@ -20,7 +23,7 @@ namespace Platform.Business
         /// <summary>
         /// IsValid değeri TRUE olan Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns></returns>
         public List<Entry> ActiveEntryGetAll()
         {
             return _entryRepository.ActiveEntryGetAll();

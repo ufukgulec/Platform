@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Platform.Business
 {
+    /// <summary>
+    /// Genel olarak veritabanı iletişim sınıfıdır. Kullandığı arabirim => IGenericService
+    /// </summary>
+    /// <typeparam name="T">Varlık Sınıfı</typeparam>
     public class GenericManager<T> : IGenericService<T> where T : class
     {
         private readonly IGenericRepository<T> _genericRepository;

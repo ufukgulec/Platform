@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace Platform.Dal.Concrete.EntityFramework.Repository
 {
+    /// <summary>
+    /// Genel Repositoryler için oluşturulmuş arabirim. Kulladığı arabim sınıfı => IGenericRepository
+    /// </summary>
+    /// <typeparam name="T">Varlık Sınıfı</typeparam>
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
         public PlatformContext _context;

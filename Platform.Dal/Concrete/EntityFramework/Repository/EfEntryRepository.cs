@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Dal.Concrete.EntityFramework.Repository
 {
+    /// <summary>
+    /// Entry için oluşturulmuş repositorydir. Kalıtım aldığı sınıf => EfGenericRepository Kullandığı arabirim => IEntryRepository
+    /// </summary>
     public class EfEntryRepository : EfGenericRepository<Entry>, IEntryRepository
     {
         public EfEntryRepository() : base()
@@ -17,7 +20,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <summary>
         /// IsValid değeri TRUE olan Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns></returns>
         public List<Entry> ActiveEntryGetAll()
         {
             return _context.Entries.Where(x => x.IsValid == true).ToList();

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Platform.Dal.Abstract
 {
+    /// <summary>
+    /// Kullandığı arabirim sınıfı => IGenericRepository
+    /// </summary>
     public interface IPersonRepository : IGenericRepository<Person>
     {
     }
