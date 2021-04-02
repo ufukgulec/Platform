@@ -14,22 +14,34 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         {
 
         }
-
+        /// <summary>
+        /// IsValid değeri TRUE olan Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
         public List<Entry> ActiveEntryGetAll()
         {
             return _context.Entries.Where(x => x.IsValid == true).ToList();
         }
-
+        /// <summary>
+        /// Eskiden Yeniye Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
         public List<Entry> OldToNewEntryGetAll()
         {
             return _context.Entries.OrderBy(x => x.EntryDate).ToList();
         }
-
+        /// <summary>
+        /// Belli bir tarihteki Entry listesini döner.
+        /// </summary>
+        /// <returns>List<Entry></returns>
         public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
         {
             return _context.Entries.Where(x => x.EntryDate == dateTime).ToList();
         }
-
+        /// <summary>
+        /// Bugünkü Entry Listesi
+        /// </summary>
+        /// <returns>List<Entry></returns>
         public List<Entry> TodayEntryGetAll()
         {
             return _context.Entries.Where(x => x.EntryDate == DateTime.Now).ToList();
