@@ -1,20 +1,27 @@
-﻿using Platform.Entities.Models;
+using Platform.Entities.Models;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Platform.Dal.Concrete.EntityFramework.Context
 {
-    public class PlatformContext : DbContext
+    public partial class PlatformContext : DbContext
     {
-        public DbSet<Entry> Entries { get; set; }
-        public DbSet<Like> Likes { get; set; }
-        public DbSet<Reply> Replies { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<User> Users { get; set; }
+        public PlatformContext()
+            : base("name=PlatformContext")
+        {
+        }
 
+        public virtual DbSet<Entry> Entries { get; set; }
+        public virtual DbSet<Like> Likes { get; set; }
+        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<PersonType> PersonTypes { get; set; }
+        public virtual DbSet<Reply> Replies { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+        }
     }
 }
