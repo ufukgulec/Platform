@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Platform.Interfaces
 {
     /// <summary>
-    /// Kullandığı inteface => IGenericService
+    /// Kullandığı interface => IGenericService
     /// </summary>
     public interface IEntryService : IGenericService<Entry>
     {
@@ -17,6 +18,11 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns></returns>
         List<Entry> ActiveEntryGetAll();
+        /// <summary>
+        /// Filter active Entry list
+        /// </summary>
+        /// <returns></returns>
+        List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression);
         /// <summary>
         /// Bugünkü Entry Listesi
         /// </summary>
@@ -32,5 +38,10 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns>List<Entry></returns>
         List<Entry> OldToNewEntryGetAll();
+        /// <summary>
+        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// </summary>
+        /// <returns></returns>
+        int ActiveEntryCount();
     }
 }

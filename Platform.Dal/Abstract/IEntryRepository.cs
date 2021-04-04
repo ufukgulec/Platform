@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,11 @@ namespace Platform.Dal.Abstract
         /// <returns>List<Entry></returns>
         List<Entry> ActiveEntryGetAll();
         /// <summary>
+        /// Filter active Entry list
+        /// </summary>
+        /// <returns></returns>
+        List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression);
+        /// <summary>
         /// Bugünkü Entry Listesi
         /// </summary>
         /// <returns>List<Entry></returns>
@@ -32,5 +38,10 @@ namespace Platform.Dal.Abstract
         /// </summary>
         /// <returns>List<Entry></returns>
         List<Entry> OldToNewEntryGetAll();
+        /// <summary>
+        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// </summary>
+        /// <returns></returns>
+        int ActiveEntryCount();
     }
 }

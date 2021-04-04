@@ -3,6 +3,7 @@ using Platform.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,15 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns></returns>
         public List<Entry> ActiveEntryGetAll()
         {
-            return _context.Entries.Where(x => x.IsValid == true).ToList();
+            return _context.Entries.Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).ToList();
+        }
+        /// <summary>
+        /// Filter Active Entry List
+        /// </summary>
+        /// <returns></returns>
+        public List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression)
+        {
+            return ActiveEntryGetAll().AsQueryable().Where(expression).ToList();
         }
         /// <summary>
         /// Eskiden Yeniye Entry listesini döner.
@@ -31,7 +40,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>List<Entry></returns>
         public List<Entry> OldToNewEntryGetAll()
         {
-            return _context.Entries.OrderBy(x => x.EntryDate).ToList();
+            return ActiveEntryGetAll().OrderBy(x => x.EntryDate).ToList();
         }
         /// <summary>
         /// Belli bir tarihteki Entry listesini döner.
@@ -39,7 +48,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>List<Entry></returns>
         public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
         {
-            return _context.Entries.Where(x => x.EntryDate == dateTime).ToList();
+            return ActiveEntryGetAll().Where(x => x.EntryDate.Equals(dateTime)).ToList();
         }
         /// <summary>
         /// Bugünkü Entry Listesi
@@ -47,7 +56,15 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>List<Entry></returns>
         public List<Entry> TodayEntryGetAll()
         {
-            return _context.Entries.Where(x => x.EntryDate == DateTime.Now).ToList();
+            return ActiveEntryGetAll().Where(x => x.EntryDate.Equals(DateTime.Now)).ToList();
+        }
+        /// <summary>
+        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// </summary>
+        /// <returns></returns>
+        public int ActiveEntryCount()
+        {
+            return ActiveEntryGetAll().Count();
         }
     }
 }

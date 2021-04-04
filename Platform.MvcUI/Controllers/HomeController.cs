@@ -16,8 +16,8 @@ namespace Platform.MvcUI.Controllers
         public ActionResult Index()
         {
             IEntryService service = new EntryManager(new EfEntryRepository());
-            var list=service.ActiveEntryGetAll();
-
+            var list = service.ActiveEntryGetAll(x=>x.PersonID==1);
+            int a = 10;
             return View();
         }
     }

@@ -4,6 +4,7 @@ using Platform.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,12 @@ namespace Platform.Business
         {
             return _entryRepository.ActiveEntryGetAll();
         }
+
+        public List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression)
+        {
+            return _entryRepository.ActiveEntryGetAll(expression);
+        }
+
         /// <summary>
         /// Eskiden Yeniye Entry listesini döner.
         /// </summary>
@@ -51,6 +58,14 @@ namespace Platform.Business
         public List<Entry> TodayEntryGetAll()
         {
             return _entryRepository.TodayEntryGetAll();
+        }
+        /// <summary>
+        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// </summary>
+        /// <returns></returns>
+        public int ActiveEntryCount()
+        {
+            return ActiveEntryCount();
         }
     }
 }
