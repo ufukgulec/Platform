@@ -55,6 +55,18 @@ namespace Platform.Dal.Abstract
         /// <returns>True False</returns>
         bool RemoveRange(Expression<Func<T, bool>> expression);
         /// <summary>
+        /// Birincil anahtarı başka tabloda kullanılmayan tablolarda silme işlemi yapar.
+        /// </summary>
+        /// <param name="id">ReplyID,LikeID</param>
+        /// <returns>True/False</returns>
+        bool Remove(int id);
+        /// <summary>
+        /// Birincil anahtarı başka tabloda kullanılmayan tablolarda silme işlemi yapar.
+        /// </summary>
+        /// <param name="entity">Reply,Like</param>
+        /// <returns>True/False</returns>
+        bool Remove(T entity);
+        /// <summary>
         /// Select ıd, name from A
         /// </summary>
         /// <typeparam name="TResult"></typeparam>

@@ -54,6 +54,17 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             return _context.Set<T>().Select(select);
         }
 
+        public bool Remove(int id)
+        {
+            return Remove(Get(id));
+        }
+
+        public bool Remove(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+            return _context.SaveChanges() > 0;
+        }
+
         public bool RemoveRange(Expression<Func<T, bool>> expression)
         {
             _context.Set<T>().RemoveRange(GetAll(expression));

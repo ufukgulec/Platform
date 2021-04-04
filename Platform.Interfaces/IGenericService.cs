@@ -54,6 +54,18 @@ namespace Platform.Interfaces
         /// <returns>True False</returns>
         bool RemoveRange(Expression<Func<T,bool>> expression);
         /// <summary>
+        /// Birincil anahtarı başka tabloda kullanılmayan tablolarda silme işlemi yapar.
+        /// </summary>
+        /// <param name="id">ReplyID,LikeID</param>
+        /// <returns>True/False</returns>
+        bool Remove(int id);
+        /// <summary>
+        /// Birincil anahtarı başka tabloda kullanılmayan tablolarda silme işlemi yapar.
+        /// </summary>
+        /// <param name="entity">Reply,Like</param>
+        /// <returns>True/False</returns>
+        bool Remove(T entity);
+        /// <summary>
         /// Gelen varlıkta belirtilen sütunları çeker ve listeler.
         /// </summary>
         /// <typeparam name="TResult">Sütunlar x.EntryID</typeparam>
