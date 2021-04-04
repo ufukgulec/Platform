@@ -15,9 +15,6 @@ namespace Platform.MvcUI.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            IEntryService service = new EntryManager(new EfEntryRepository());
-            var list = service.ActiveEntryGetAll(x=>x.PersonID==1);
-            int a = 10;
             return View();
         }
     }
