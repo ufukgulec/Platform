@@ -20,5 +20,23 @@ namespace Platform.Business
         {
             _personRepository = personRepository;
         }
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
+        /// </summary>
+        /// <param name="id">PersonID</param>
+        /// <returns>True/False</returns>
+        public bool Delete(int id)
+        {
+            return _personRepository.Delete(id);
+        }
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="person">Person</param>
+        /// <returns>True/False</returns>
+        public bool Delete(Person person)
+        {
+            return _personRepository.Delete(person);
+        }
     }
 }

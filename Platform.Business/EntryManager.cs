@@ -80,5 +80,23 @@ namespace Platform.Business
         {
             return _entryRepository.ActiveEntryGetAll();
         }
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
+        /// </summary>
+        /// <param name="id">EntryID</param>
+        /// <returns>True/False</returns>
+        public bool Delete(int id)
+        {
+            return _entryRepository.Delete(id);
+        }
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="entity">Entry</param>
+        /// <returns>True/False</returns>
+        public bool Delete(Entry entry)
+        {
+            return _entryRepository.Delete(entry);
+        }
     }
 }

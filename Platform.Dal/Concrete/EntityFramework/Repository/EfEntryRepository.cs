@@ -67,6 +67,26 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         {
             return ActiveEntryGetAll().Count();
         }
-     
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
+        /// </summary>
+        /// <param name="id">EntryID</param>
+        /// <returns>True/False</returns>
+        public bool Delete(int id)
+        {
+            return Delete(Get(id));
+        }
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="entity">Entry</param>
+        /// <returns>True/False</returns>
+        public bool Delete(Entry entry)
+        {
+            _context.Replies.RemoveRange(_context.Replies.Where(x => x.EntryID == entry.EntryID).ToList());//Entry-Reply
+            _context.Likes.RemoveRange(_context.Likes.Where(x => x.EntryID == entry.EntryID).ToList());//Entry-Like
+            _context.Entries.Remove(entry);
+            return _context.SaveChanges() > 0;
+        }
     }
 }

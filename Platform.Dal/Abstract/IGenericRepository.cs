@@ -41,18 +41,7 @@ namespace Platform.Dal.Abstract
         /// <param name="expression"></param>
         /// <returns>T List</returns>
         List<T> GetAll(Expression<Func<T, bool>> expression);
-        /// <summary>
-        /// Id'ye göre varlık silme
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Bool</returns>
-        bool Delete(int id);
-        /// <summary>
-        /// T varlığını siler
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns>Bool</returns>
-        bool Delete(T entity);
+        
         /// <summary>
         /// T varlığını dönderir
         /// </summary>

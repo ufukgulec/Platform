@@ -42,18 +42,6 @@ namespace Platform.Interfaces
         /// <returns>Filter Entries,Tags,People</returns>
         List<T> GetAll(Expression<Func<T, bool>> expression);
         /// <summary>
-        /// Id'ye göre varlığı siler.
-        /// </summary>
-        /// <param name="id">EntryID,TagID,PersonID </param>
-        /// <returns>True/False</returns>
-        bool Delete(int id);
-        /// <summary>
-        /// T varlığını siler
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns>Bool</returns>
-        bool Delete(T entity);
-        /// <summary>
         /// Gelen varlığı günceller.
         /// </summary>
         /// <param name="entity">Entry,Tag,Person</param>

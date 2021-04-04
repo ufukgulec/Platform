@@ -34,17 +34,6 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             return GetAll().Count;
         }
 
-        public bool Delete(int id)
-        {
-            return Delete(Get(id));
-        }
-
-        public bool Delete(T entity)
-        {
-            _context.Set<T>().Remove(entity);
-            return _context.SaveChanges() > 0;
-        }
-
         public T Get(int id)
         {
             return _context.Set<T>().Find(id);

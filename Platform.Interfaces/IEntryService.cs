@@ -44,6 +44,18 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns>0,1,2,3,4...</returns>
         int ActiveEntryCount();
-        
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
+        /// </summary>
+        /// <param name="id">EntryID</param>
+        /// <returns>True/False</returns>
+        bool Delete(int id);
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="entity">Entry</param>
+        /// <returns>True/False</returns>
+        bool Delete(Entry entry);
+
     }
 }

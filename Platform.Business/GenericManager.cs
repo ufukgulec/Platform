@@ -30,16 +30,6 @@ namespace Platform.Business
             return _genericRepository.Count();
         }
 
-        public bool Delete(int id)
-        {
-            return _genericRepository.Delete(id);
-        }
-
-        public bool Delete(T entity)
-        {
-            return _genericRepository.Delete(entity);
-        }
-
         public T Get(int id)
         {
             return _genericRepository.Get(id);

@@ -17,5 +17,27 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         {
 
         }
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
+        /// </summary>
+        /// <param name="id">PersonID</param>
+        /// <returns>True/False</returns>
+        public bool Delete(int id)
+        {
+            return Delete(Get(id));
+        }
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="person">Person</param>
+        /// <returns>True/False</returns>
+        public bool Delete(Person person)
+        {
+            _context.Replies.RemoveRange(_context.Replies.Where(x => x.PersonID == person.PersonID).ToList());//Entry-Reply
+            _context.Likes.RemoveRange(_context.Likes.Where(x => x.PersonID == person.PersonID).ToList());//Entry-Like
+            _context.Entries.RemoveRange(_context.Entries.Where(x => x.PersonID == person.PersonID).ToList());//Entry-Entry
+            _context.People.Remove(person);
+            return _context.SaveChanges() > 0;
+        }
     }
 }

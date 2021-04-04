@@ -12,5 +12,17 @@ namespace Platform.Dal.Abstract
     /// </summary>
     public interface IPersonRepository : IGenericRepository<Person>
     {
+        /// <summary>
+        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
+        /// </summary>
+        /// <param name="id">PersonID</param>
+        /// <returns>True/False</returns>
+        bool Delete(int id);
+        /// <summary>
+        /// Gelen varlığı siler.
+        /// </summary>
+        /// <param name="person">Person</param>
+        /// <returns>True/False</returns>
+        bool Delete(Person person);
     }
 }
