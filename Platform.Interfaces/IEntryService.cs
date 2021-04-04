@@ -43,5 +43,6 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns></returns>
         int ActiveEntryCount();
+        
     }
 }

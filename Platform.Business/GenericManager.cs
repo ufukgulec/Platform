@@ -55,6 +55,16 @@ namespace Platform.Business
             return _genericRepository.GetAll(expression);
         }
 
+        public IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select)
+        {
+            return _genericRepository.GetAllSelect(select);
+        }
+
+        public bool RemoveRange(Expression<Func<T, bool>> expression)
+        {
+            return _genericRepository.RemoveRange(expression);
+        }
+
         public T Update(T entity)
         {
             return _genericRepository.Update(entity);

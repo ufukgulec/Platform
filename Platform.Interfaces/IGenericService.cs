@@ -59,5 +59,18 @@ namespace Platform.Interfaces
         /// <param name="entity"></param>
         /// <returns>T</returns>
         T Update(T entity);
+        /// <summary>
+        /// RemoveRange ile siler. Örnek(RemoveRange(x=>x.ıd>=0))
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns>True False</returns>
+        bool RemoveRange(Expression<Func<T,bool>> expression);
+        /// <summary>
+        /// Select ıd, name from A
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="select"></param>
+        /// <returns></returns>
+        IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select);
     }
 }

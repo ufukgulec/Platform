@@ -66,5 +66,6 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         {
             return ActiveEntryGetAll().Count();
         }
+     
     }
 }

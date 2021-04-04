@@ -60,6 +60,18 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             return _context.Set<T>().AsNoTracking().Where(expression).ToList();
         }
 
+        public IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select)
+        {
+            return _context.Set<T>().Select(select);
+        }
+
+        public bool RemoveRange(Expression<Func<T, bool>> expression)
+        {
+            _context.Set<T>().RemoveRange(GetAll(expression));
+            return _context.SaveChanges() > 0;
+
+        }
+
         public T Update(T entity)
         {
             _context.Set<T>().AddOrUpdate(entity);

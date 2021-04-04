@@ -67,5 +67,14 @@ namespace Platform.Business
         {
             return ActiveEntryCount();
         }
+        /// <summary>
+        /// Active Entry Take List
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public List<Entry> ActiveEntryMost()
+        {
+            return _entryRepository.ActiveEntryGetAll();
+        }
     }
 }

@@ -43,5 +43,6 @@ namespace Platform.Dal.Abstract
         /// </summary>
         /// <returns></returns>
         int ActiveEntryCount();
+
     }
 }
