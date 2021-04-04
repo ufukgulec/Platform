@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== Bootstrap CSS ===== -->
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.css">
+    <!-- ===== Main CSS ===== -->
+    <link rel="stylesheet" href="~/Content/assets/css/styles.css">
+
+    <title>Platform</title>
+</head>
+<body id="body-pd">
+    <!--Header Begin-->
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+
+        <div class="header__img">
+            <img src="~/Content/assets/img/perfil.jpg" alt="profil-image">
+        </div>
+    </header>
+    <!--Header Finish-->
+    <!--Navbar Begin-->
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav__logo">
+                    <i class='bx bx-layer nav__logo-icon'></i>
+                    <span class="nav__logo-name">Platform</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/" class="nav__link active">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Anasayfa</span>
+                    </a>
+
+                    <a href="/Tag/Index" class="nav__link">
+                        <i class='bx bx-tag nav__icon'></i>
+                        <span class="nav__name">Konular</span>
+                    </a>
+
+                    <a href="/Entry/Index" class="nav__link">
+                        <i class='bx bx-message-square-detail nav__icon'></i>
+                        <span class="nav__name">Yazılar</span>
+                    </a>
+
+                    <a href="/Entry/Keşfet" class="nav__link">
+                        <i class='bx bx-pointer nav__icon'></i>
+                        <span class="nav__name">Keşfet</span>
+                    </a>
+
+                    <a href="/User/Index" class="nav__link">
+                        <i class='bx bx-user nav__icon'></i>
+                        <span class="nav__name">Profil</span>
+                    </a>
+
+                    <a href="/User/YourLike" class="nav__link">
+                        <i class='bx bx-heart nav__icon'></i>
+                        <span class="nav__name">Beğendiklerin</span>
+                    </a>
+                    <a href="/More/" class="nav__link">
+                        <i class='bx bx-cog nav__icon'></i>
+                        <span class="nav__name">Daha fazlası</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/User/Logout" class="nav__link">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Çıkış</span>
+            </a>
+        </nav>
+    </div>
+    <!--Navbar Finish-->
+    <main>
+        @RenderBody()
+    </main>
+    <!--===== MAIN JS =====-->
+    <script src="~/Content/assets/js/main.js"></script>
+    <!-- ===== Bootstrap JS ===== -->
+    <script src="~/Content/assets/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/assets/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>
