@@ -44,6 +44,7 @@
     <Compile Include="IEntryService.cs" />
     <Compile Include="IGenericService.cs" />
     <Compile Include="IPersonService.cs" />
+    <Compile Include="IReplyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
