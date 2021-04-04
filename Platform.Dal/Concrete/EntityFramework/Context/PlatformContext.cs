@@ -1,8 +1,8 @@
-using Platform.Entities.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
+using Platform.Entities.Models;
 
 namespace Platform.Dal.Concrete.EntityFramework.Context
 {

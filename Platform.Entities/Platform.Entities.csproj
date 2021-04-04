@@ -54,7 +54,6 @@
     <Compile Include="Models\Like.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonType.cs" />
-    <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Reply.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,5 +62,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

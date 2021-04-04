@@ -27,6 +27,8 @@ namespace Platform.Entities.Models
 
         public string PersonMail { get; set; }
 
+        public string PersonImgUrl { get; set; }
+
         [StringLength(50)]
         public string Username { get; set; }
 
