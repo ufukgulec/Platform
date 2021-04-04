@@ -14,34 +14,35 @@ namespace Platform.Interfaces
     public interface IEntryService : IGenericService<Entry>
     {
         /// <summary>
-        /// IsValid değeri TRUE olan Entry listesini döner.
+        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Entries</returns>
         List<Entry> ActiveEntryGetAll();
         /// <summary>
-        /// Filter active Entry list
+        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="expression">Koşul x=>x.EntryID>0</param>
+        /// <returns>Entries</returns>
         List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression);
         /// <summary>
         /// Bugünkü Entry Listesi
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         List<Entry> TodayEntryGetAll();
         /// <summary>
         /// Belli bir tarihteki Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         List<Entry> PastHistoryEntryGetAll(DateTime dateTime);
         /// <summary>
-        /// Eskiden Yeniye Entry listesini döner.
+        /// Eskiden yeniye Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         List<Entry> OldToNewEntryGetAll();
         /// <summary>
-        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// isValid Değeri TRUE olan entry listesindeki veri adeti
         /// </summary>
-        /// <returns></returns>
+        /// <returns>0,1,2,3,4...</returns>
         int ActiveEntryCount();
         
     }

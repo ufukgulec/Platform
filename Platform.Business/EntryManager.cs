@@ -22,23 +22,27 @@ namespace Platform.Business
             _entryRepository = entryRepository;
         }
         /// <summary>
-        /// IsValid değeri TRUE olan Entry listesini döner.
+        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Entries</returns>
         public List<Entry> ActiveEntryGetAll()
         {
             return _entryRepository.ActiveEntryGetAll();
         }
-
+        /// <summary>
+        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
+        /// </summary>
+        /// <param name="expression">Koşul x=>x.EntryID>0</param>
+        /// <returns>Entries</returns>
         public List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression)
         {
             return _entryRepository.ActiveEntryGetAll(expression);
         }
 
         /// <summary>
-        /// Eskiden Yeniye Entry listesini döner.
+        /// Eskiden yeniye Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         public List<Entry> OldToNewEntryGetAll()
         {
             return _entryRepository.OldToNewEntryGetAll();
@@ -46,7 +50,7 @@ namespace Platform.Business
         /// <summary>
         /// Belli bir tarihteki Entry listesini döner.
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
         {
             return _entryRepository.PastHistoryEntryGetAll(dateTime);
@@ -54,15 +58,15 @@ namespace Platform.Business
         /// <summary>
         /// Bugünkü Entry Listesi
         /// </summary>
-        /// <returns>List<Entry></returns>
+        /// <returns>Entries</returns>
         public List<Entry> TodayEntryGetAll()
         {
             return _entryRepository.TodayEntryGetAll();
         }
         /// <summary>
-        /// isValid Değeri TRUE olan entrylerin sayısı
+        /// isValid Değeri TRUE olan entry listesindeki veri adeti
         /// </summary>
-        /// <returns></returns>
+        /// <returns>0,1,2,3,4...</returns>
         public int ActiveEntryCount()
         {
             return ActiveEntryCount();

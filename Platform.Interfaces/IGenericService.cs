@@ -8,44 +8,44 @@ using System.Threading.Tasks;
 namespace Platform.Interfaces
 {
     /// <summary>
-    /// Genel sınıflar için oluşturulmuş arabirim sınıfıdır. Sınıflar ile çalışır.
+    /// Genel varlıklar için oluşturulmuş arabirim sınıfıdır. Sınıflar ile çalışır.
     /// </summary>
     /// <typeparam name="T">Varlık Sınıfları</typeparam>
     public interface IGenericService<T> where T : class
     {
         /// <summary>
-        /// T varlığını ekleme
+        /// Gelen varlığı ekler.
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns>T</returns>
+        /// <param name="entity">Entry,Tag,Person,Like</param>
+        /// <returns>Entry,Tag,Person,Like</returns>
         T Add(T entity);
         /// <summary>
-        /// Id'ye göre varlık getir
+        /// Id'ye göre varlık dönderir.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">EntryID,TagID,PersonID</param>
         /// <returns>T</returns>
         T Get(int id);
         /// <summary>
-        /// List Count
+        /// Varlık sayısı
         /// </summary>
-        /// <returns>Veri sayısı</returns>
+        /// <returns>Veri adeti</returns>
         int Count();
         /// <summary>
-        /// Tüm T listesi
+        /// Varlık listesi döner.
         /// </summary>
-        /// <returns>T List</returns>
+        /// <returns>Entries,Tags,People</returns>
         List<T> GetAll();
         /// <summary>
-        /// Filter List T
+        /// Filtreli varlık listesi döner.
         /// </summary>
-        /// <param name="expression"></param>
-        /// <returns>T List</returns>
+        /// <param name="expression">x=>x.EntryID==n</param>
+        /// <returns>Filter Entries,Tags,People</returns>
         List<T> GetAll(Expression<Func<T, bool>> expression);
         /// <summary>
-        /// Id'ye göre varlık silme
+        /// Id'ye göre varlığı siler.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Bool</returns>
+        /// <param name="id">EntryID,TagID,PersonID </param>
+        /// <returns>True/False</returns>
         bool Delete(int id);
         /// <summary>
         /// T varlığını siler
@@ -54,10 +54,10 @@ namespace Platform.Interfaces
         /// <returns>Bool</returns>
         bool Delete(T entity);
         /// <summary>
-        /// T varlığını dönderir
+        /// Gelen varlığı günceller.
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns>T</returns>
+        /// <param name="entity">Entry,Tag,Person</param>
+        /// <returns>Entry,Tag,Person</returns>
         T Update(T entity);
         /// <summary>
         /// RemoveRange ile siler. Örnek(RemoveRange(x=>x.ıd>=0))
@@ -66,11 +66,11 @@ namespace Platform.Interfaces
         /// <returns>True False</returns>
         bool RemoveRange(Expression<Func<T,bool>> expression);
         /// <summary>
-        /// Select ıd, name from A
+        /// Gelen varlıkta belirtilen sütunları çeker ve listeler.
         /// </summary>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="select"></param>
-        /// <returns></returns>
+        /// <typeparam name="TResult">Sütunlar x.EntryID</typeparam>
+        /// <param name="select">x</param>
+        /// <returns>Entries,Tags,People</returns>
         IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select);
     }
 }
