@@ -1,4 +1,5 @@
 ﻿using Platform.Business;
+using Platform.Dal.Abstract;
 using Platform.Dal.Concrete.EntityFramework.Repository;
 using Platform.Entities.Models;
 using Platform.Interfaces;
@@ -12,7 +13,7 @@ namespace Platform.MvcUI.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        readonly IGenericService<Tag> tagService = new GenericManager<Tag>(new EfGenericRepository<Tag>());
         public ActionResult Index()
         {
             return View();
