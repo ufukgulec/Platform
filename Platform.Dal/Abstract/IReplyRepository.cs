@@ -6,9 +6,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Platform.Interfaces
+namespace Platform.Dal.Abstract
 {
-    public interface IReplyService : IGenericService<Reply>
+    public interface IReplyRepository:IGenericRepository<Reply>
     {
         /// <summary>
         /// IsValid değeri TRUE olan Reply listesini döner.

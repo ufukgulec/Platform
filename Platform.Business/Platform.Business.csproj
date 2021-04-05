@@ -45,6 +45,7 @@
     <Compile Include="EntryManager.cs" />
     <Compile Include="GenericManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Platform.Dal\Platform.Dal.csproj">
