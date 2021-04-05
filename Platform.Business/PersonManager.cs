@@ -84,5 +84,12 @@ namespace Platform.Business
                 };
             }
         }
+        public Person Register(Person person)
+        {
+            person.Password = new ToPasswordRepository().Md5(person.Password);
+            person.IsValid = true;
+            person.PersonTypeID = 1;
+            return _personRepository.Add(person);
+        }
     }
 }

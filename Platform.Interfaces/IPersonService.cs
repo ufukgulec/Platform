@@ -44,5 +44,6 @@ namespace Platform.Interfaces
         /// <param name="parola"></param>
         /// <returns></returns>
         PocoPerson Login(string Username, string password);
+        Person Register(Person person);
     }
 }

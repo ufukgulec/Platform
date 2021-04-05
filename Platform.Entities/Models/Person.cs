@@ -2,6 +2,7 @@ namespace Platform.Entities.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,20 +19,20 @@ namespace Platform.Entities.Models
         }
 
         public int PersonID { get; set; }
-
+        [DisplayName("Adýnýz")]
         [StringLength(50)]
         public string PersonName { get; set; }
-
+        [DisplayName("Soyadýnýz")]
         [StringLength(100)]
         public string PersonSurname { get; set; }
-
+        [DisplayName("E-mail")]
         public string PersonMail { get; set; }
 
         public string PersonImgUrl { get; set; }
-
+        [DisplayName("Kullanýcý Adýnýz")]
         [StringLength(50)]
         public string Username { get; set; }
-
+        [DisplayName("Parolanýz")]
         public string Password { get; set; }
 
         public bool? IsValid { get; set; }

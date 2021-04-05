@@ -5,6 +5,7 @@ using Platform.Interfaces;
 using Platform.MvcUI.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -57,7 +58,28 @@ namespace Platform.MvcUI.Controllers
         [HttpPost]
         public ActionResult Register(Person person)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (Request.Files.Count > 0)
+                    {
+                        string FileName = Path.GetFileName(person.Username);
+                        string FileTypeName = Path.GetExtension(Request.Files[0].FileName);
+                        string path = "~/Content/ProfileImages/" + FileName + FileTypeName;
+                        Request.Files[0].SaveAs(Server.MapPath(path));
+                        person.PersonImgUrl = path;
+                    }
+                    personService.Register(person);
+                    return RedirectToAction("Login");
+                }
+            }
+            catch (Exception)
+            {
+
+                return View(person);
+            }
+            return View(person);
         }
     }
 }
