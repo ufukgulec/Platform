@@ -1,4 +1,5 @@
-﻿
+﻿@using Platform.Entities.Models
+@model List<Entry>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,436 +7,99 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-8 home-entries">
-            <div class="row entry">
-                <div class="col p-2">
-                    <div class="row entry-header">
-                        <div class="col-2 col-md-1">
-                            <div class="header__img">
-                                <img src="~/Content/assets/img/perfil.jpg" alt="">
+            @foreach (var item in Model)
+            {
+                <div class="row entry">
+                    <div class="col p-2">
+                        <div class="row entry-header">
+                            <div class="col-2 col-md-1">
+                                <div class="header__img">
+                                    <img src="~/Content/assets/img/perfil.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-8" style="align-content:center">
+                                <a href="#" class="iconwithtext">
+                                    <i class='bx bx-at nav__icon'></i>
+                                    <span class="nav__name">@item.Person.Username</span>
+                                </a>
+                            </div>
+                            <div class="col-4 col-md-3">
+                                <a href="#" class="iconwithtext">
+                                    <i class='bx bx-tag nav__icon'></i>
+                                    <span class="nav__name">@item.Tag.TagName</span>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-6 col-md-8">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-at nav__icon'></i>
-                                <span class="nav__name">username</span>
-                            </a>
-                            <small>01.01.2020</small>
+                        <div class="row entry-article">
+                            <div class="col p-4">@item.EntryArticle</div>
                         </div>
-                        <div class="col-4 col-md-3">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-tag nav__icon'></i>
-                                <span class="nav__name">Konu</span>
-                            </a>
+                        <div class="row entry-counter">
+                            <div class="col like-counter">
+                                <p class="iconwithtext">
+                                    <i class='bx bx-heart nav__icon'></i>
+                                    <span class="nav__name">@item.Likes.Count</span>
+                                    <i class='bx bx-reply nav__icon'></i>
+                                    <span class="nav__name">@item.Replies.Count</span>
+                                </p>
+                            </div>
+                            <div class="col entry-calendar text-right">
+                                <p class="iconwithtext" style="float: right;">
+                                    <i class='bx bx-calendar nav__icon'></i>
+                                    <span class="nav__name">@Convert.ToDateTime(item.EntryDate).ToString("MM/dd/yyyy")</span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row entry-article">
-                        <div class="col p-4">Article</div>
-                    </div>
-                    <div class="row entry-counter">
-                        <div class="col like-counter">
-                            <p class="iconwithtext">
-                                <i class='bx bx-heart nav__icon'></i>
-                                <span class="nav__name">123</span>
-                                <i class='bx bx-reply nav__icon'></i>
-                                <span class="nav__name">123</span>
-                            </p>
-                        </div>
-                        <div class="col entry-calendar text-right">
-                            <p class="iconwithtext" style="float: right;">
-                                <i class='bx bx-calendar nav__icon'></i>
-                                <span class="nav__name">01.10.2021</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row entry-buttons p-1">
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-like nav__icon'></i>
-                                <span class="nav__name">Beğen</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-comment-add nav__icon'></i>
-                                <span class="nav__name">Reply</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                                <span class="nav__name">Detay</span>
-                            </a>
+                        <div class="row entry-buttons p-1">
+                            <div class="col">
+                                <a href="#" class="iconwithtext">
+                                    <i class='bx bx-like nav__icon'></i>
+                                    <span class="nav__name">Beğen</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="iconwithtext">
+                                    <i class='bx bx-comment-add nav__icon'></i>
+                                    <span class="nav__name">Reply</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="iconwithtext">
+                                    <i class='bx bx-dots-vertical-rounded nav__icon'></i>
+                                    <span class="nav__name">Detay</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row entry">
-                <div class="col p-2">
-                    <div class="row entry-header">
-                        <div class="col-2 col-md-1">
-                            <div class="header__img">
-                                <img src="~/Content/assets/img/perfil.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-at nav__icon'></i>
-                                <span class="nav__name">username</span>
-                            </a>
-                            <small>01.01.2020</small>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-tag nav__icon'></i>
-                                <span class="nav__name">Konu</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row entry-article">
-                        <div class="col p-4">Article</div>
-                    </div>
-                    <div class="row entry-counter">
-                        <div class="col like-counter">
-                            <p class="iconwithtext">
-                                <i class='bx bx-heart nav__icon'></i>
-                                <span class="nav__name">123</span>
-                                <i class='bx bx-reply nav__icon'></i>
-                                <span class="nav__name">123</span>
-                            </p>
-                        </div>
-                        <div class="col entry-calendar text-right">
-                            <p class="iconwithtext" style="float: right;">
-                                <i class='bx bx-calendar nav__icon'></i>
-                                <span class="nav__name">01.10.2021</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row entry-buttons p-1">
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-like nav__icon'></i>
-                                <span class="nav__name">Beğen</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-comment-add nav__icon'></i>
-                                <span class="nav__name">Reply</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                                <span class="nav__name">Detay</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row entry">
-                <div class="col p-2">
-                    <div class="row entry-header">
-                        <div class="col-2 col-md-1">
-                            <div class="header__img">
-                                <img src="~/Content/assets/img/perfil.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-at nav__icon'></i>
-                                <span class="nav__name">username</span>
-                            </a>
-                            <small>01.01.2020</small>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-tag nav__icon'></i>
-                                <span class="nav__name">Konu</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row entry-article">
-                        <div class="col p-4">Article</div>
-                    </div>
-                    <div class="row entry-counter">
-                        <div class="col like-counter">
-                            <p class="iconwithtext">
-                                <i class='bx bx-heart nav__icon'></i>
-                                <span class="nav__name">123</span>
-                                <i class='bx bx-reply nav__icon'></i>
-                                <span class="nav__name">123</span>
-                            </p>
-                        </div>
-                        <div class="col entry-calendar text-right">
-                            <p class="iconwithtext" style="float: right;">
-                                <i class='bx bx-calendar nav__icon'></i>
-                                <span class="nav__name">01.10.2021</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row entry-buttons p-1">
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-like nav__icon'></i>
-                                <span class="nav__name">Beğen</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-comment-add nav__icon'></i>
-                                <span class="nav__name">Reply</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                                <span class="nav__name">Detay</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row entry">
-                <div class="col p-2">
-                    <div class="row entry-header">
-                        <div class="col-2 col-md-1">
-                            <div class="header__img">
-                                <img src="~/Content/assets/img/perfil.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-at nav__icon'></i>
-                                <span class="nav__name">username</span>
-                            </a>
-                            <small>01.01.2020</small>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-tag nav__icon'></i>
-                                <span class="nav__name">Konu</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row entry-article">
-                        <div class="col p-4">Article</div>
-                    </div>
-                    <div class="row entry-counter">
-                        <div class="col like-counter">
-                            <p class="iconwithtext">
-                                <i class='bx bx-heart nav__icon'></i>
-                                <span class="nav__name">123</span>
-                                <i class='bx bx-reply nav__icon'></i>
-                                <span class="nav__name">123</span>
-                            </p>
-                        </div>
-                        <div class="col entry-calendar text-right">
-                            <p class="iconwithtext" style="float: right;">
-                                <i class='bx bx-calendar nav__icon'></i>
-                                <span class="nav__name">01.10.2021</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row entry-buttons p-1">
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-like nav__icon'></i>
-                                <span class="nav__name">Beğen</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-comment-add nav__icon'></i>
-                                <span class="nav__name">Reply</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                                <span class="nav__name">Detay</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row entry">
-                <div class="col p-2">
-                    <div class="row entry-header">
-                        <div class="col-2 col-md-1">
-                            <div class="header__img">
-                                <img src="~/Content/assets/img/perfil.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-at nav__icon'></i>
-                                <span class="nav__name">username</span>
-                            </a>
-                            <small>01.01.2020</small>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-tag nav__icon'></i>
-                                <span class="nav__name">Konu</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row entry-article">
-                        <div class="col p-4">Article</div>
-                    </div>
-                    <div class="row entry-counter">
-                        <div class="col like-counter">
-                            <p class="iconwithtext">
-                                <i class='bx bx-heart nav__icon'></i>
-                                <span class="nav__name">123</span>
-                                <i class='bx bx-reply nav__icon'></i>
-                                <span class="nav__name">123</span>
-                            </p>
-                        </div>
-                        <div class="col entry-calendar text-right">
-                            <p class="iconwithtext" style="float: right;">
-                                <i class='bx bx-calendar nav__icon'></i>
-                                <span class="nav__name">01.10.2021</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row entry-buttons p-1">
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-like nav__icon'></i>
-                                <span class="nav__name">Beğen</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-comment-add nav__icon'></i>
-                                <span class="nav__name">Reply</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="iconwithtext">
-                                <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                                <span class="nav__name">Detay</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <div class="col-12 col-md-4 right-side">
             <div class="fixed-area">
                 <div class="row">
                     <div class="col popular-tags p-2">
-                        <center><h2>Popüler Taglar</h2></center>
-                        @Html.Partial("MostPopularTags", "Home")
+                        <center>
+                            <h2 style="display:flex;align-items:center;">
+                                <span id="loading-tag" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                <span style="margin:0 auto" class="sr-only">Popüler Taglar</span>
+                            </h2>
+                        </center>
+                        <div id="MostPopularTags">
+                            <!--jquery ile çekiyorum.-->
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <center><h2>Popüler Entries</h2></center>
+                    <center>
+                        <h2 style="display:flex;align-items:center;">
+                            <span id="loading-entry" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                            <span style="margin:0 auto" class="sr-only">Popüler Entries</span>
+                        </h2>
+                    </center>
                     <div class="col popular-entries p-2">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 iconwithtext">
-                                        <i class='bx bx-right-arrow-alt nav__icon'></i>
-                                        <span>Entry Title</span>
-                                    </h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1 iconwithtext">
-                                    <span>Some placeholder content in a paragraph.</span>
-                                    <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
-                                </p>
-                                <small class="iconwithtext">
-                                    <i class='bx bx-user-circle nav__icon'></i>
-                                    <span>username</span>
-                                </small>
-                            </a>
+                            <div id="MostPopularEntries">
+                                <!--jquery ile çekiyorum.-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -443,3 +107,19 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#loading-tag").show(300);
+        $.get("/Home/MostPopularTags", function (data) {
+            console.log(data);
+            $("#MostPopularTags").html(data);
+            $("#loading-tag").hide(300);
+        });
+        $("#loading-entry").show(300);
+        $.get("/Home/MostPopularEntries", function (data) {
+            console.log(data);
+            $("#MostPopularEntries").html(data);
+            $("#loading-entry").hide(300);
+        });
+    });
+</script>

@@ -1,0 +1,23 @@
+﻿@using Platform.Entities.Models
+@model List<Entry>
+
+@foreach (var item in Model)
+{
+    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 iconwithtext">
+                <i class='bx bx-right-arrow-alt nav__icon'></i>
+                <span>@item.EntryTitle</span>
+            </h5>
+            <small>3 days ago</small>
+        </div>
+        <p class="mb-1 iconwithtext">
+            <span>@item.EntryArticle</span>
+            <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
+        </p>
+        <small class="iconwithtext">
+            <i class='bx bx-user-circle nav__icon'></i>
+            <span>@item.Person.Username</span>
+        </small>
+    </a>
+}

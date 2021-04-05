@@ -105,6 +105,7 @@
     <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\assets\css\styles.css" />
     <Content Include="Content\assets\img\perfil.jpg" />
+    <Content Include="Content\assets\js\jQuery.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -132,6 +133,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MostPopularTags.cshtml" />
+    <Content Include="Views\Home\MostPopularEntries.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
