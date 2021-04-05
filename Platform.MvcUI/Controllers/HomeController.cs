@@ -35,9 +35,9 @@ namespace Platform.MvcUI.Controllers
         {
             return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
         }
-        public PartialViewResult Tags()
+        public PartialViewResult TagSelectList()
         {
-            return PartialView("Index", cacheFonksiyon.TagsGet());
+            return PartialView("TagSelectList", cacheFonksiyon.TagsGet());
         }
     }
 }

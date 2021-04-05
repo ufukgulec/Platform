@@ -146,6 +146,7 @@
     <Content Include="Views\Home\MostPopularEntries.cshtml" />
     <Content Include="Views\Person\Login.cshtml" />
     <Content Include="Views\Person\Register.cshtml" />
+    <Content Include="Views\Home\TagSelectList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

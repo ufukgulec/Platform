@@ -1,4 +1,10 @@
 ﻿$(function () {
+    /*TagSelectList*/
+    $.get("/Home/TagSelectList", function (data) {
+        console.log(data);
+        $("#TagSelectList").html(data);
+    });
+
     $("#loading-tag").show(300);
     $.get("/Home/MostPopularTags", function (data) {
         console.log(data);
