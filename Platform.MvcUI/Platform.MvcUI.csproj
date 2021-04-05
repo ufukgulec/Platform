@@ -119,6 +119,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectControllerFactory.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Global.asax.cs">
@@ -155,6 +156,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\ProfileImages\" />
+    <Folder Include="Views\Entry\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Platform.Business\Platform.Business.csproj">
