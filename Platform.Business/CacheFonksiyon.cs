@@ -44,9 +44,9 @@ namespace Platform.Business
 
             provider.Set(Enums.CacheKey.Tags.ToString(), tagsCache);
         }
-        public object TagsGet()
+        public List<Tag> TagsGet()
         {
-            object value = null;
+            List<Tag> value = null;
             try
             {
                 var liste = ((List<Tag>)provider.Get(Enums.CacheKey.Tags.ToString()));

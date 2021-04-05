@@ -1,5 +1,6 @@
 using Platform.Business;
 using Platform.Cache;
+using Platform.MvcUI.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,13 @@ namespace Platform.MvcUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+
             CacheProvider.Instance = new DefaultCacheProvider();
             CacheFonksiyon fonksiyon = new CacheFonksiyon();
             fonksiyon.CacheClear();
             fonksiyon.CacheCreate();
+
         }
     }
 }
