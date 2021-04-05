@@ -31,7 +31,18 @@
                             </div>
                         </div>
                         <div class="row entry-article">
-                            <div class="col p-4">@item.EntryArticle</div>
+
+                            <div class="col p-4">
+                                <h2 class="text-capitalize">@item.EntryTitle</h2>
+                                @if (@item.EntryArticle.Length >= 247)
+                                {
+                                    <p class="text-capitalize">@item.EntryArticle.Substring(0, 247) ...</p>
+                                }
+                                else
+                                {
+                                    <p class="text-capitalize">@item.EntryArticle</p>
+                                }
+                            </div>
                         </div>
                         <div class="row entry-counter">
                             <div class="col like-counter">

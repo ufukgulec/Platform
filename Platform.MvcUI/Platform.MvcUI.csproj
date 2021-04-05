@@ -105,6 +105,7 @@
     <Content Include="Content\assets\bootstrap\js\bootstrap.js" />
     <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\assets\css\styles.css" />
+    <Content Include="Content\assets\img\platform.png" />
     <Content Include="Content\assets\img\perfil.jpg" />
     <Content Include="Content\assets\js\jQuery.js" />
     <Content Include="Content\assets\js\main.js" />

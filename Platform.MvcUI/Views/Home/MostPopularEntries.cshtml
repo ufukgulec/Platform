@@ -7,13 +7,21 @@
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1 iconwithtext">
                 <i class='bx bx-right-arrow-alt nav__icon'></i>
-                <span>@item.EntryTitle</span>
+                <span class="text-capitalize">@item.EntryTitle</span>
             </h5>
             <small>3 days ago</small>
         </div>
         <p class="mb-1 iconwithtext">
-            <span>@item.EntryArticle</span>
-            <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
+            @if (@item.EntryArticle.Length >= 100)
+            {
+                <span class="text-capitalize">@item.EntryArticle.Substring(0,97)</span>
+                <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
+            }
+            else
+            {
+                <span class="text-capitalize">@item.EntryArticle</span>
+            }
+
         </p>
         <small class="iconwithtext">
             <i class='bx bx-user-circle nav__icon'></i>
