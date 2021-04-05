@@ -24,7 +24,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>Entries</returns>
         public List<Entry> ActiveEntryGetAll()
         {
-            return _context.Entries.Include("Person").Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).ToList();
+            return _context.Entries.Include("Person").Include("Tag").Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).ToList();
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
