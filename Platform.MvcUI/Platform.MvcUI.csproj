@@ -157,6 +157,10 @@
       <Project>{e7bda38b-d614-48f4-894f-52f2df6679b5}</Project>
       <Name>Platform.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Platform.Cache\Platform.Cache.csproj">
+      <Project>{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}</Project>
+      <Name>Platform.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Platform.Dal\Platform.Dal.csproj">
       <Project>{f99a043d-dca7-467b-92ac-14b852f040f2}</Project>
       <Name>Platform.Dal</Name>

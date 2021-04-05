@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Business", "Platfo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.MvcUI", "Platform.MvcUI\Platform.MvcUI.csproj", "{37F681DB-840C-4D59-AB4C-7A4E624DF607}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Cache", "Platform.Cache\Platform.Cache.csproj", "{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{37F681DB-840C-4D59-AB4C-7A4E624DF607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F681DB-840C-4D59-AB4C-7A4E624DF607}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F681DB-840C-4D59-AB4C-7A4E624DF607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531362E6-0DEB-4F08-ACCE-C09D8BD8AACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
