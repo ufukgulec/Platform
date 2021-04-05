@@ -108,6 +108,7 @@
     <Content Include="Content\assets\js\jQuery.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\MyScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
