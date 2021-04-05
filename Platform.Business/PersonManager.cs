@@ -80,7 +80,8 @@ namespace Platform.Business
                 {
                     PersonID = user.PersonID,
                     Username = user.Username,
-                    PersonTypeID = (int)user.PersonTypeID
+                    PersonTypeID = (int)user.PersonTypeID,
+                    PersonImgUrl = user.PersonImgUrl
                 };
             }
         }

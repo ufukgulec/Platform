@@ -18,16 +18,15 @@ namespace Platform.MvcUI.Controllers
         readonly IEntryService entryService = new EntryManager(new EfEntryRepository());
         public ActionResult Index()
         {
-            return View(entryService.ActiveEntryGetAll());
+            return View(entryService.TodayEntryGetAll());
         }
         public PartialViewResult MostPopularTags()
         {
-            //Thread.Sleep(2000);
-            return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).ToList());
+            return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
         }
         public PartialViewResult MostPopularEntries()
         {
-            return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).ToList());
+            return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
         }
     }
 }

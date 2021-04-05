@@ -14,5 +14,6 @@ namespace Platform.Entities.PocoModels
         public int PersonID { get; set; }
         public string Username { get; set; }
         public int PersonTypeID { get; set; }
+        public string PersonImgUrl { get; set; }
     }
 }

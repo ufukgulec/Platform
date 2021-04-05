@@ -33,7 +33,8 @@ namespace Platform.MvcUI.Controllers
                     var user = personService.Login(person.Username, person.Password);
                     if (user != null)
                     {
-                        Session["User"] = user;
+                        TempData["Username"] = user.Username;
+                        TempData["UserPhoto"] = user.PersonImgUrl;
                         return RedirectToAction("Index", "Home");
                     }
 
@@ -66,7 +67,7 @@ namespace Platform.MvcUI.Controllers
                     {
                         string FileName = Path.GetFileName(person.Username);
                         string FileTypeName = Path.GetExtension(Request.Files[0].FileName);
-                        string path = "~/Content/ProfileImages/" + FileName + FileTypeName;
+                        string path = "/Content/ProfileImages/" + FileName + FileTypeName;
                         Request.Files[0].SaveAs(Server.MapPath(path));
                         person.PersonImgUrl = path;
                     }

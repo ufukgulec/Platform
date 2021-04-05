@@ -9,12 +9,20 @@
                 <i class='bx bx-right-arrow-alt nav__icon'></i>
                 <span class="text-capitalize">@item.EntryTitle</span>
             </h5>
-            <small>3 days ago</small>
+            @if (@DateTime.Today.CompareTo(item.EntryDate) > 0)
+            {
+                <small>@DateTime.Today.CompareTo(item.EntryDate) gün önce</small>
+            }
+            else
+            {
+                <small>Bugün</small>
+            }
+
         </div>
         <p class="mb-1 iconwithtext">
             @if (@item.EntryArticle.Length >= 100)
             {
-                <span class="text-capitalize">@item.EntryArticle.Substring(0,97)</span>
+                <span class="text-capitalize">@item.EntryArticle.Substring(0, 97)...</span>
                 <i class='bx bx-dots-horizontal-rounded nav__icon'></i>
             }
             else
