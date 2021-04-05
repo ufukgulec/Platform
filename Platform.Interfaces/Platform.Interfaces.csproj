@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IEntryService.cs" />
     <Compile Include="IGenericService.cs" />
+    <Compile Include="ILikeService.cs" />
     <Compile Include="IPersonService.cs" />
     <Compile Include="IReplyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

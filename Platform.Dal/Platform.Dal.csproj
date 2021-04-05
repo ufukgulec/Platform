@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ILikeRepository.cs" />
     <Compile Include="Abstract\IPersonRepository.cs" />
     <Compile Include="Abstract\IEntryRepository.cs" />
     <Compile Include="Abstract\IGenericRepository.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Concrete\EntityFramework\Context\PlatformContext.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfEntryRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfGenericRepository.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\EfLikeRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfPersonRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfReplyRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
