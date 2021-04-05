@@ -4,6 +4,7 @@ using Platform.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,23 @@ namespace Platform.Business
         public PersonManager(IPersonRepository personRepository) : base(personRepository)
         {
             _personRepository = personRepository;
+        }
+        /// <summary>
+        /// IsValid değeri TRUE olan Person listesini döner.
+        /// </summary>
+        /// <returns>People</returns>
+        public List<Person> ActivePersonGetAll()
+        {
+            return _personRepository.ActivePersonGetAll();
+        }
+        /// <summary>
+        /// IsValid değeri TRUE olan ve koşula göre Person listesini döner.
+        /// </summary>
+        /// <param name="expression">Koşul x=>x.PersonID>0</param>
+        /// <returns>People</returns>
+        public List<Person> ActivePersonGetAll(Expression<Func<Person, bool>> expression)
+        {
+            return _personRepository.ActivePersonGetAll(expression);
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.

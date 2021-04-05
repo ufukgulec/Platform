@@ -3,6 +3,7 @@ using Platform.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,23 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         public EfPersonRepository() : base()
         {
 
+        }
+        /// <summary>
+        /// IsValid değeri TRUE olan Person listesini döner.
+        /// </summary>
+        /// <returns>People</returns>
+        public List<Person> ActivePersonGetAll()
+        {
+            return _context.People.Where(x => x.IsValid == true).ToList();
+        }
+        /// <summary>
+        /// IsValid değeri TRUE olan ve koşula göre Person listesini döner.
+        /// </summary>
+        /// <param name="expression">Koşul x=>x.PersonID>0</param>
+        /// <returns>People</returns>
+        public List<Person> ActivePersonGetAll(Expression<Func<Person, bool>> expression)
+        {
+            return ActivePersonGetAll().AsQueryable().Where(expression).ToList();
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
