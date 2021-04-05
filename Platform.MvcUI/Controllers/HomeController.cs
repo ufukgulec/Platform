@@ -22,7 +22,6 @@ namespace Platform.MvcUI.Controllers
         {
             this.entryService = entryService;
         }
-
         public ActionResult Index()
         {
             return View(entryService.TodayEntryGetAll());
