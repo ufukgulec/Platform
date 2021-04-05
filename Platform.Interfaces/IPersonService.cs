@@ -1,4 +1,5 @@
 ﻿using Platform.Entities.Models;
+using Platform.Entities.PocoModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,5 +37,12 @@ namespace Platform.Interfaces
         /// <param name="person">Person</param>
         /// <returns>True/False</returns>
         bool Delete(Person person);
+        /// <summary>
+        /// Kullanıcı Giriş metodu
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <param name="parola"></param>
+        /// <returns></returns>
+        PocoPerson Login(string Username, string password);
     }
 }

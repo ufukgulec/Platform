@@ -36,5 +36,12 @@ namespace Platform.Dal.Abstract
         /// <param name="person">Person</param>
         /// <returns>True/False</returns>
         bool Delete(Person person);
+        /// <summary>
+        /// Kullanıcı Giriş metodu
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <param name="parola"></param>
+        /// <returns></returns>
+        Person Login(string Username, string password);
     }
 }

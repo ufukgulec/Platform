@@ -1,5 +1,6 @@
 ﻿using Platform.Dal.Abstract;
 using Platform.Entities.Models;
+using Platform.Entities.PocoModels;
 using Platform.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,33 @@ namespace Platform.Business
         public bool Delete(Person person)
         {
             return _personRepository.Delete(person);
+        }
+
+        public PocoPerson Login(string Username, string password)
+        {
+            if (String.IsNullOrEmpty(Username.Trim()))
+            {
+                throw new Exception("Kullanıcı Adı boş geçilemez");
+            }
+            else if (String.IsNullOrEmpty(password.Trim()))
+            {
+                throw new Exception("Parola boş geçilemez");
+            }
+            var sifre = new ToPasswordRepository().Md5(password);
+            var user = _personRepository.Login(Username, sifre);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı adınızı veya parolanızı kontrol ediniz.");
+            }
+            else
+            {
+                return new PocoPerson()
+                {
+                    PersonID = user.PersonID,
+                    Username = user.Username,
+                    PersonTypeID = (int)user.PersonTypeID
+                };
+            }
         }
     }
 }

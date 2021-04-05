@@ -57,5 +57,10 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             _context.People.Remove(person);
             return _context.SaveChanges() > 0;
         }
+
+        public Person Login(string Username, string password)
+        {
+            return _context.People.Where(x => x.Username == Username && x.Password == password).SingleOrDefault();
+        }
     }
 }
