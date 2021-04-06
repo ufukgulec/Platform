@@ -18,3 +18,21 @@
         $("#loading-entry").hide(300);
     });
 });
+function Login() {
+    $.ajax({
+        method: 'POST',
+        url: '../Person/Login',
+        data: $("#login-form").serialize()
+    }).fail(function () {
+        console.log("Giriş hatalı");
+    });
+}
+//function Register() {
+//    $.ajax({
+//        method: 'POST',
+//        url: '../Person/Register',
+//        data: $("#register-form").serialize()
+//    }).fail(function () {
+//        console.log("Giriş hatalı");
+//    });
+//}
