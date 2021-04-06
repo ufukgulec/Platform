@@ -14,8 +14,6 @@ namespace Platform.MvcUI.Controllers
 {
     public class HomeController : Controller
     {
-        readonly IGenericService<Tag> tagService = new GenericManager<Tag>(new EfGenericRepository<Tag>());
-        CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         readonly IEntryService entryService;
 
         public HomeController(IEntryService entryService)
@@ -24,20 +22,9 @@ namespace Platform.MvcUI.Controllers
         }
         public ActionResult Index()
         {
+            var kullanıcı = TempData["Username"];
             return View(entryService.TodayEntryGetAll());
         }
-        public PartialViewResult MostPopularTags()
-        {
-            //var list = cacheFonksiyon.TagsGet();
-            return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
-        }
-        public PartialViewResult MostPopularEntries()
-        {
-            return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
-        }
-        public PartialViewResult TagSelectList()
-        {
-            return PartialView("TagSelectList", cacheFonksiyon.TagsGet());
-        }
+        
     }
 }
