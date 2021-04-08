@@ -1,16 +1,13 @@
-﻿<form id="entryPost">
-    <div id="TagSelectList" class="mb-3">
-        <!--jquery ile çekiyorum-->
+﻿<form id="new-post" class="form-horizontal" role="form">
+    <h4>What's New</h4>
+    <div class="form-group" style="padding:14px; margin-bottom: 0">
+        <input class="form-control" placeholder="Başlık" required>
     </div>
-    <div class="mb-3">
-        <label for="entry-title" class="form-label">Entry Başlığı</label>
-        <input type="text" class="form-control" id="entry-title" placeholder="Başlık giriniz.">
+    <div class="form-group" style="padding:14px;">
+        <textarea class="form-control" placeholder="Metniniz" required></textarea>
     </div>
-    <div class="mb-3">
-        <label for="entry-article" class="form-label">Metniniz</label>
-        <textarea class="form-control" id="entry-article" rows="3"></textarea>
-    </div>
-    <div class="d-grid gap-2">
-        <input type="button" class="btn btn-primary" value="Gönder" />
-    </div>
+    <button class="btn btn-primary pull-right" style="width:48%">Post</button>
+    <select id="tag-select-list" class="form-control" style="width: 48%" aria-label="Default select example" required>
+      <!--jquery-->  
+    </select>
 </form>

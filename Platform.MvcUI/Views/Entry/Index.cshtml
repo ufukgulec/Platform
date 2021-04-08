@@ -5,83 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Entries</h2>
-<div id="new-post" class="row entry-post pt-3">
-    <!--New post area jquery-->
-</div>
-@foreach (var item in Model)
-{
-    <div class="row entry">
-        <div class="col p-2">
-            <div class="row entry-header">
-                <div class="col-2 col-md-1">
-                    <div class="header__img">
-                        <img src="@item.Person.PersonImgUrl" alt="@item.Person.Username">
-                    </div>
-                </div>
-                <div class="col-6 col-md-8" style="align-content:center">
-                    <a href="#" class="iconwithtext">
-                        <i class='bx bx-at nav__icon'></i>
-                        <span class="nav__name">@item.Person.Username</span>
-                    </a>
-                </div>
-                <div class="col-4 col-md-3">
-                    <a href="#" class="iconwithtext">
-                        <i class='bx bx-tag nav__icon'></i>
-                        <span class="nav__name">@item.Tag.TagName</span>
-                    </a>
-                </div>
-            </div>
-            <div class="row entry-article">
-
-                <div class="col p-4">
-                    <h2 class="text-capitalize">@item.EntryTitle</h2>
-                    @if (@item.EntryArticle.Length >= 247)
-                    {
-                        <p class="text-capitalize">@item.EntryArticle.Substring(0, 247) ...</p>
-                    }
-                    else
-                    {
-                        <p class="text-capitalize">@item.EntryArticle</p>
-                    }
-                </div>
-            </div>
-            <div class="row entry-counter">
-                <div class="col like-counter">
-                    <p class="iconwithtext">
-                        <i class='bx bx-heart nav__icon'></i>
-                        <span class="nav__name">@item.Likes.Count</span>
-                        <i class='bx bx-reply nav__icon'></i>
-                        <span class="nav__name">@item.Replies.Count</span>
-                    </p>
-                </div>
-                <div class="col entry-calendar text-right">
-                    <p class="iconwithtext" style="float: right;">
-                        <i class='bx bx-calendar nav__icon'></i>
-                        <span class="nav__name">@Convert.ToDateTime(item.EntryDate).ToString("MM/dd/yyyy")</span>
-                    </p>
-                </div>
-            </div>
-            <div class="row entry-buttons p-1">
-                <div class="col">
-                    <a href="#" class="iconwithtext">
-                        <i class='bx bx-like nav__icon'></i>
-                        <span class="nav__name">Beğen</span>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="iconwithtext">
-                        <i class='bx bx-comment-add nav__icon'></i>
-                        <span class="nav__name">Reply</span>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="iconwithtext">
-                        <i class='bx bx-dots-vertical-rounded nav__icon'></i>
-                        <span class="nav__name">Detay</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+<div class="col-sm-12">
+    <div id="new-post-area" class="well">
+        <!--jquery-->
     </div>
-}
+    <div id="entries">
+        @foreach (var item in Model)
+        {
+            <div id="entry" class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="@item.Person.PersonImgUrl" class="img-circle pull-left">
+                    <a href="#" class="pull-right">
+                        <i class='bx bx-tag-alt'></i>
+                        <span>@item.Tag.TagName</span>
+                    </a>
+                    <a href="#"><h4>@item.EntryTitle</h4></a>
+                    <a href="#" style="margin-left:5px"> @@@item.Person.Username</a>
+                </div>
+                <div class="panel-body">
+                    <p>@item.EntryArticle</p>
+                    <small>
+                        <i class='bx bx-calendar'></i>
+                        <span>@Convert.ToDateTime(item.EntryDate).ToString("dd/MM/yyyy")</span>
+                    </small>
+                    <hr>
+                    <div id="entry-like&reply-counter">
+                        <i class='bx bx-heart'></i><span>@item.Likes.Count</span>
+                        <i class='bx bx-reply-all'></i><span>@item.Replies.Count</span>
+                    </div>
+                    <br />
+                    <form>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default">
+                                    <i class='bx bxs-like bx-tada-hover'></i>
+                                </button>
+                                <button class="btn btn-default">
+                                    <i class='bx bxs-send bx-tada-hover'></i>
+                                </button>
+                            </div>
+                            <input style="height: 38px;" class="form-control" placeholder="Reply" type="text">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

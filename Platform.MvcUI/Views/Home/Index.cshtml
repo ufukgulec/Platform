@@ -4,48 +4,87 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-8 home-entries">
-            <div id="new-post" class="row entry-post pt-3">
-                <!--New post area jquery-->
+<!-- main col left -->
+<div class="col-sm-7">
+    <div id="new-post-area" class="well">
+        <form class="form-horizontal" role="form">
+            <h4>What's New</h4>
+            <div class="form-group" style="padding:14px; margin-bottom: 0">
+                <input class="form-control" placeholder="Başlık">
             </div>
-            <hr />
-            <div id="TodayEntryGetAll">
-                <!--Entries jquery-->
+            <div class="form-group" style="padding:14px;">
+                <textarea class="form-control" placeholder="Metniniz"></textarea>
             </div>
-        </div>
-        <div class="col-12 col-md-4 right-side">
-            <div class="fixed-area">
-                <div class="row">
-                    <div class="col popular-tags p-2">
-                        <center>
-                            <h2 style="display:flex;align-items:center;">
-                                <span id="loading-tag" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                                <span style="margin:0 auto" class="sr-only">Popüler Taglar</span>
-                            </h2>
-                        </center>
-                        <div id="MostPopularTags">
-                            <!--jquery ile çekiyorum.-->
-                        </div>
-                    </div>
+            <button class="btn btn-primary pull-right" style="width:48%" type="button">Post</button>
+            <select id="tag-select-list" class="form-control" style="width: 48%" aria-label="Default select example">
+                <option selected>Konu seçiniz</option>
+                <option>Bilim</option>
+            </select>
+        </form>
+    </div>
+    <div id="entries">
+        <div id="entry" class="panel panel-default">
+            <div class="panel-heading">
+                <img src="" class="img-circle pull-left">
+                <a href="#" class="pull-right">
+                    <i class='bx bx-tag-alt'></i>
+                    <span>Tag</span>
+                </a>
+                <a href="#"><h4>Entry Title</h4></a>
+                <a href="#">@@username</a>
+            </div>
+            <div class="panel-body">
+                <!--<img src="assets/img/150x150.gif" class="img-circle pull-left"> <a href="#">Keyword: Bootstrap</a>
+                <div class="clearfix"></div>
+                <hr>-->
+                <p>Entry Article</p>
+                <small>
+                    <i class='bx bx-calendar'></i>
+                    <span>01.01.2020</span>
+                </small>
+                <hr>
+                <div id="entry-like&reply-counter">
+                    <i class='bx bx-heart'></i><span>11</span>
+                    <i class='bx bx-reply-all'></i><span>11</span>
                 </div>
-                <div class="row">
-                    <center>
-                        <h2 style="display:flex;align-items:center;">
-                            <span id="loading-entry" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                            <span style="margin:0 auto" class="sr-only">Popüler Entries</span>
-                        </h2>
-                    </center>
-                    <div class="col popular-entries p-2">
-                        <div class="list-group">
-                            <div id="MostPopularEntries">
-                                <!--jquery ile çekiyorum.-->
-                            </div>
+                <br />
+                <form>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default">
+                                <i class='bx bxs-like bx-tada-hover'></i>
+                            </button>
+                            <button class="btn btn-default">
+                                <i class='bx bxs-send bx-tada-hover'></i>
+                            </button>
                         </div>
+                        <input style="height: 38px;" class="form-control" placeholder="Reply" type="text">
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<!--main col right-->
+<div class="col-sm-5">
+    <div id="popular-tag-area" class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/Tag/Index" class="pull-right">Tümünü Görüntüle</a>
+            <h4><span>Popular Tags</span><i id="loading-tag" class='bx bx-loader bx-spin'></i></h4>
+        </div>
+        <div id="popular-tags" class="panel-body">
+            <div class="list-group">
+                <!--jquery ile çekme-->
+            </div>
+        </div>
+    </div>
+    <div id="popular-entry-area" class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/Entry/Index" class="pull-right">Tümünü Görüntüle</a>
+            <h4><span>Popular Entries</span><i id="loading-entry" class='bx bx-loader bx-spin'></i></h4>
+        </div>
+        <div id="popular-entries" class="panel-body">
+            <!--jquery-->
+        </div>
+    </div>
+</div><!--/row-->

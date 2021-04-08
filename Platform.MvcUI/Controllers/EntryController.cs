@@ -26,6 +26,7 @@ namespace Platform.MvcUI.Controllers
         {
             return PartialView(entryService.TodayEntryGetAll());
         }
+
         public PartialViewResult Post()
         {
             return PartialView();

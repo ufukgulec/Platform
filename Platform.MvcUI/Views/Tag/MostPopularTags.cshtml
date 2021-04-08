@@ -4,16 +4,15 @@
 @{
     Layout = null;
 }
-<ol class="list-group list-group-numbered">
+<div class="list-group">
     @foreach (var item in Model)
     {
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold"><a href="#">@item.TagName</a></div>
-                <!--Spor ile ilgili yazılar-->
-            </div>
-            <span class="badge bg-primary rounded-pill">@item.Entries.Count</span>
-        </li>
+        <a href="#" class="list-group-item">
+            <i class='bx bx-tag-alt'></i>
+            <span>@item.TagName</span>
+            <span class="badge bg-primary rounded-pill">
+                @item.Entries.Count
+            </span>
+        </a>
     }
-
-</ol>
+</div>

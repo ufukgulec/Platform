@@ -17,7 +17,7 @@ namespace Platform.MvcUI.Controllers
         CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public ActionResult Index()
         {
-            var tagList = tagService.GetAllSelect(x => x.IsValid == true);
+            var tagList = tagService.GetAll();
             return View(tagList);
         }
         public PartialViewResult MostPopularTags()
