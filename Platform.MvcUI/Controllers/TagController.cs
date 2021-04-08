@@ -17,11 +17,11 @@ namespace Platform.MvcUI.Controllers
         CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public ActionResult Index()
         {
-            return View();
+            var tagList = cacheFonksiyon.TagsGet();
+            return View(tagList);
         }
         public PartialViewResult MostPopularTags()
         {
-            Thread.Sleep(2000);
             return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
         }
 

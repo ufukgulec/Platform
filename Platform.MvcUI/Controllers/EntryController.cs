@@ -26,9 +26,9 @@ namespace Platform.MvcUI.Controllers
         {
             return PartialView(entryService.TodayEntryGetAll());
         }
-        public ActionResult Post()
+        public PartialViewResult Post()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult Post(Entry entry)
@@ -42,7 +42,6 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularEntries()
         {
-            Thread.Sleep(5000);
             return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
         }
     }

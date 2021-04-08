@@ -25,6 +25,6 @@ namespace Platform.MvcUI.Controllers
             var kullanıcı = TempData["Username"];
             return View(entryService.TodayEntryGetAll());
         }
-        
+
     }
 }

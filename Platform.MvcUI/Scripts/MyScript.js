@@ -1,12 +1,12 @@
 ﻿$(function () {
-    /*TagSelectList*/
-    TagSelectList();
     /*Popular Tags*/
     MostPopularTags();
     /*Popular Entries*/
     MostPopularEntries();
     /*Home Entries*/
     TodayEntryGetAll();
+    /*New Post*/
+    NewPostArea();
 });
 function LoadingOpen(name) {
     $("#loading-" + name).show(300);
@@ -58,5 +58,13 @@ function MostPopularEntries() {
         console.log(data);
         $("#MostPopularEntries").html(data);
         LoadingClose("entry");
+    });
+}
+function NewPostArea() {
+    $.get("/Entry/Post", function (data) {
+        console.log(data);
+        $("#new-post").html(data);
+        /*TagSelectList*/
+        TagSelectList();
     });
 }
