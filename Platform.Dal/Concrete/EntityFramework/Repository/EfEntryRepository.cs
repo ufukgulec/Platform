@@ -2,6 +2,7 @@
 using Platform.Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -25,8 +26,9 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>Entries</returns>
         public List<Entry> EntryList()
         {
-            var list = GetAll().Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).OrderByDescending(x => x.EntryID).ToList();
-            return list;
+            var list = _context.Entries.Include(x=>x.Person).Include(x=>x.Tag).OrderByDescending(x => x.EntryID).AsNoTracking().ToList();
+
+            return list.Where(x => x.IsValid == true && x.Person.IsValid == true && x.Tag.IsValid == true).ToList();
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.

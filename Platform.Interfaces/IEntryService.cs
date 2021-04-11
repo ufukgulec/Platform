@@ -36,6 +36,11 @@ namespace Platform.Interfaces
         /// <param name="entity">Entry</param>
         /// <returns>True/False</returns>
         bool Delete(Entry entry);
+        /// <summary>
+        /// Entrytitle, EntryArticle, PersonID ve TagID olarak gelen varlığı Generic Add metoduna yönlendirir.
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <returns></returns>
         Entry Post(Entry entry);
         /// <summary>
         /// Datetime.Now.Date e eşit olan (Bugun) Entry listesi

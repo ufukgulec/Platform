@@ -21,6 +21,7 @@ namespace Platform.Business
         {
             _entryRepository = entryRepository;
         }
+
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
