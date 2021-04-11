@@ -25,60 +25,18 @@ namespace Platform.Business
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
         /// <returns>Entries</returns>
-        public List<Entry> ActiveEntryGetAll()
+        public List<Entry> EntryList()
         {
-            return _entryRepository.ActiveEntryGetAll();
+            return _entryRepository.EntryList();
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID>0</param>
         /// <returns>Entries</returns>
-        public List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression)
+        public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            return _entryRepository.ActiveEntryGetAll(expression);
-        }
-
-        /// <summary>
-        /// Eskiden yeniye Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> OldToNewEntryGetAll()
-        {
-            return _entryRepository.OldToNewEntryGetAll();
-        }
-        /// <summary>
-        /// Belli bir tarihteki Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
-        {
-            return _entryRepository.PastHistoryEntryGetAll(dateTime);
-        }
-        /// <summary>
-        /// Bugünkü Entry Listesi
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> TodayEntryGetAll()
-        {
-            return _entryRepository.TodayEntryGetAll();
-        }
-        /// <summary>
-        /// isValid Değeri TRUE olan entry listesindeki veri adeti
-        /// </summary>
-        /// <returns>0,1,2,3,4...</returns>
-        public int ActiveEntryCount()
-        {
-            return ActiveEntryCount();
-        }
-        /// <summary>
-        /// Active Entry Take List
-        /// </summary>
-        /// <param name="n"></param>
-        /// <returns></returns>
-        public List<Entry> ActiveEntryMost()
-        {
-            return _entryRepository.ActiveEntryGetAll();
+            return _entryRepository.EntryList(expression);
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
@@ -97,6 +55,25 @@ namespace Platform.Business
         public bool Delete(Entry entry)
         {
             return _entryRepository.Delete(entry);
+        }
+        /// <summary>
+        /// Entry post Tarih ve isValid özelliği metotta tanımlıdır.
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <returns></returns>
+        public Entry Post(Entry entry)
+        {
+            entry.IsValid = true;
+            entry.EntryDate = DateTime.Now.Date;
+            return _entryRepository.Add(entry);
+        }
+        /// <summary>
+        /// Datetime.Now.Date e eşit olan (Bugun) Entry listesi
+        /// </summary>
+        /// <returns>Entries</returns>
+        public List<Entry> TodayEntries()
+        {
+            return _entryRepository.EntryList().Where(x => x.EntryDate == DateTime.Now.Date).ToList();
         }
     }
 }

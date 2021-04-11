@@ -18,13 +18,20 @@ namespace Platform.MvcUI.Controllers
             this.entryService = entryService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(entryService.ActiveEntryGetAll());
+            if (id == null)
+            {
+                return View(entryService.EntryList());
+            }
+            else
+            {
+                return View(entryService.EntryList(x => x.TagID == id));
+            }
         }
         public PartialViewResult TodayEntryGetAll()
         {
-            return PartialView(entryService.TodayEntryGetAll());
+            return PartialView(entryService.TodayEntries());
         }
 
         public PartialViewResult Post()
@@ -34,6 +41,7 @@ namespace Platform.MvcUI.Controllers
         [HttpPost]
         public ActionResult Post(Entry entry)
         {
+            entryService.Post(entry);
             return RedirectToAction("Index");
         }
         public ActionResult Delete(int id)
@@ -43,7 +51,7 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularEntries()
         {
-            return PartialView("MostPopularEntries", entryService.ActiveEntryGetAll().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
+            return PartialView("MostPopularEntries", entryService.EntryList().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
         }
     }
 }

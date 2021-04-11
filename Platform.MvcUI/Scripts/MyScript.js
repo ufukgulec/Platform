@@ -14,7 +14,7 @@
     /*Popular Entries*/
     MostPopularEntries();
     /*Home Entries*/
-    /*TodayEntryGetAll();*/
+    TodayEntries();
     /*New Post*/
     NewPostArea();
 });
@@ -74,12 +74,13 @@ function Register() {
         console.log("Giriş hatalı");
     });
 }
-/*function TodayEntryGetAll() {
+function TodayEntries() {
     $.get("/Entry/TodayEntryGetAll", function (data) {
-        console.log(data);
-        $("#TodayEntryGetAll").html(data);
+        console.log("Home/Index için bugünkü entry'ler");
+        $("#today-entries").html(data);
     });
-}*/
+}
+/*Sadece yeni tag için ve yeni entry için alanlar*/
 function NewTag() {
     var x = document.getElementById("new-tag-area");
     var button = document.getElementById("new-tag-button");
@@ -92,4 +93,30 @@ function NewTag() {
         button.className = "btn btn-success";
         button.innerHTML = "Yeni";
     }
+}
+function NewEntry() {
+    var x = document.getElementById("new-post-area");
+    var button = document.getElementById("new-entry-button");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        button.className = "btn btn-danger";
+        button.innerHTML = "Kapat";
+    } else {
+        x.style.display = "none";
+        button.className = "btn btn-success";
+        button.innerHTML = "Yeni";
+    }
+}
+/*Entry Post*/
+function EntryPost() {
+    $.ajax({
+        method: 'POST',
+        url: '../Entry/Post',
+        data: $("#post-form").serialize()
+    }).done(function () {
+        console.log("Başarılı gönderim");
+        TodayEntries();
+    }).fail(function () {
+        console.log("----HATA----");
+    });
 }

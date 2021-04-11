@@ -14,6 +14,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
     /// </summary>
     public class EfEntryRepository : EfGenericRepository<Entry>, IEntryRepository
     {
+
         public EfEntryRepository() : base()
         {
 
@@ -22,51 +23,22 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
         /// <returns>Entries</returns>
-        public List<Entry> ActiveEntryGetAll()
+        public List<Entry> EntryList()
         {
-            return _context.Entries.Include("Person").Include("Tag").Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).ToList();
+            var list = GetAll().Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true).OrderByDescending(x => x.EntryID).ToList();
+            return list;
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID>0</param>
         /// <returns>Entries</returns>
-        public List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression)
+        public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            return ActiveEntryGetAll().AsQueryable().Where(expression).ToList();
+            var list = EntryList().AsQueryable().Where(expression).ToList();
+            return list;
         }
-        /// <summary>
-        /// Eskiden yeniye Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> OldToNewEntryGetAll()
-        {
-            return ActiveEntryGetAll().OrderBy(x => x.EntryDate).ToList();
-        }
-        /// <summary>
-        /// Belli bir tarihteki Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> PastHistoryEntryGetAll(DateTime dateTime)
-        {
-            return ActiveEntryGetAll().Where(x => x.EntryDate.Equals(dateTime)).ToList();
-        }
-        /// <summary>
-        /// Bugünkü Entry Listesi
-        /// </summary>
-        /// <returns>Entries</returns>
-        public List<Entry> TodayEntryGetAll()
-        {
-            return ActiveEntryGetAll().Where(x => x.EntryDate.Equals(DateTime.Today)).ToList();
-        }
-        /// <summary>
-        /// isValid Değeri TRUE olan entry listesindeki veri adeti
-        /// </summary>
-        /// <returns>0,1,2,3,4...</returns>
-        public int ActiveEntryCount()
-        {
-            return ActiveEntryGetAll().Count();
-        }
+
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>

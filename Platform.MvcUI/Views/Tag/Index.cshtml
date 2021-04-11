@@ -23,20 +23,20 @@
             </div>
         </form>
     </div>
-    <div id="tags">
-        <div id="popular-tags" class="list-group">
-            @foreach (var item in Model)
-            {
-                <a href="#" class="list-group-item">
-                    <i class='bx bx-tag-alt'></i>
-                    <span>@item.TagName</span>
-                    <span class="badge bg-primary rounded-pill">
-                        @item.Entries.Count
-                    </span>
-                    <br />
-                    <small>@item.TagDescription</small>
-                </a>
-            }
-        </div>
+    <div id="tags" class="list-group">
+
+        @foreach (var item in Model)
+        {
+            <a href="/Entry/Index/@item.TagID" class="list-group-item">
+                <i class='bx bx-tag-alt'></i>
+                <span>@item.TagName</span>
+                <span class="badge bg-primary rounded-pill">
+                    @item.Entries.Count
+                </span>
+                <br />
+                <small>@item.TagDescription</small>
+            </a>
+        }
+
     </div>
 </div>

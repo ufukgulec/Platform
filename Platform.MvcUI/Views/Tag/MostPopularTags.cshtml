@@ -7,7 +7,7 @@
 <div class="list-group">
     @foreach (var item in Model)
     {
-        <a href="#" class="list-group-item">
+        <a href="/Entry/Index/@item.TagID" class="list-group-item">
             <i class='bx bx-tag-alt'></i>
             <span>@item.TagName</span>
             <span class="badge bg-primary rounded-pill">

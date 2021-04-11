@@ -149,24 +149,24 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     Update Status
                 </div>
-                <div class="modal-body">
-                    <form class="form center-block">
+                <form class="form center-block" id="post-form">
+                    <input type="text" hidden value="@Session["PersonID"]" name="PersonID" />
+                    <div class="modal-body">
                         <div class="form-group" style="padding:14px; margin-bottom: 0">
-                            <input class="form-control" placeholder="Başlık">
+                            <input class="form-control" placeholder="Başlık" name="EntryTitle">
                         </div>
                         <div class="form-group" style="padding:14px;">
-                            <textarea class="form-control" placeholder="Metniniz"></textarea>
+                            <textarea class="form-control" placeholder="Metniniz" name="EntryArticle"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div>
-                        <button class="btn btn-primary pull-right" style="width:48%" type="button">Post</button>
-                        <select id="tag-select-list-modal" class="form-control" style="width: 48%" aria-label="Default select example">
-                            
-                        </select>
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button data-dismiss="modal" class="btn btn-primary pull-right" style="width:48%" type="button" onclick="EntryPost()">Post</button>
+                            <select id="tag-select-list-modal" class="form-control" style="width: 48%" aria-label="Default select example" name="TagID">
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

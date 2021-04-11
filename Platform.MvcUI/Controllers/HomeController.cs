@@ -22,9 +22,7 @@ namespace Platform.MvcUI.Controllers
         }
         public ActionResult Index()
         {
-            var kullanıcı = TempData["Username"];
-            return View(entryService.TodayEntryGetAll());
+            return View(entryService.GetAll()); // <----
         }
-
     }
 }

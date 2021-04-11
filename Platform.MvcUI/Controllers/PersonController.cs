@@ -34,7 +34,7 @@ namespace Platform.MvcUI.Controllers
                     if (user != null)
                     {
                         TempData["Username"] = user.Username;
-                        TempData["UserPhoto"] = user.PersonImgUrl;
+                        Session["PersonID"] = user.PersonID;
                         return RedirectToAction("Index", "Home");
                     }
 

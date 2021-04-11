@@ -6,7 +6,8 @@
 }
 
 <div class="col-sm-12">
-    <div id="new-post-area" class="well">
+    <button id="new-entry-button" class="btn btn-success" style="width: 100%; margin-bottom: 10px;" onclick="NewEntry()">Yeni</button>
+    <div id="new-post-area" style="display:none" class="well">
         <!--jquery-->
     </div>
     <div id="entries">
@@ -15,7 +16,7 @@
             <div id="entry" class="panel panel-default">
                 <div class="panel-heading">
                     <img src="@item.Person.PersonImgUrl" class="img-circle pull-left">
-                    <a href="#" class="pull-right">
+                    <a href="/Entry/Index/@item.TagID" class="pull-right">
                         <i class='bx bx-tag-alt'></i>
                         <span>@item.Tag.TagName</span>
                     </a>

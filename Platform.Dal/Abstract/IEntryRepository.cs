@@ -17,33 +17,14 @@ namespace Platform.Dal.Abstract
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
         /// <returns>Entries</returns>
-        List<Entry> ActiveEntryGetAll();
+        List<Entry> EntryList();
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID>0</param>
         /// <returns>Entries</returns>
-        List<Entry> ActiveEntryGetAll(Expression<Func<Entry, bool>> expression);
-        /// <summary>
-        /// Bugünkü Entry Listesi
-        /// </summary>
-        /// <returns>Entries</returns>
-        List<Entry> TodayEntryGetAll();
-        /// <summary>
-        /// Belli bir tarihteki Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        List<Entry> PastHistoryEntryGetAll(DateTime dateTime);
-        /// <summary>
-        /// Eskiden yeniye Entry listesini döner.
-        /// </summary>
-        /// <returns>Entries</returns>
-        List<Entry> OldToNewEntryGetAll();
-        /// <summary>
-        /// isValid Değeri TRUE olan entry listesindeki veri adeti
-        /// </summary>
-        /// <returns>0,1,2,3,4...</returns>
-        int ActiveEntryCount();
+        List<Entry> EntryList(Expression<Func<Entry, bool>> expression);
+
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>
