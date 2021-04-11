@@ -51,7 +51,8 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularEntries()
         {
-            return PartialView("MostPopularEntries", entryService.EntryList().OrderByDescending(x => x.Likes.Count).Take(5).ToList());
+            var list = entryService.EntryList();
+            return PartialView("MostPopularEntries", list);
         }
     }
 }

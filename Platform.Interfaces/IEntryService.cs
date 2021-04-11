@@ -47,5 +47,6 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns>Entries</returns>
         List<Entry> TodayEntries();
+
     }
 }
