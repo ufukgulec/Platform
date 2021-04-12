@@ -149,7 +149,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     Update Status
                 </div>
-                <form class="form center-block" id="post-form">
+                <form class="form center-block" id="modal-post-form">
                     <input type="text" hidden value="@Session["PersonID"]" name="PersonID" />
                     <div class="modal-body">
                         <div class="form-group" style="padding:14px; margin-bottom: 0">
@@ -161,7 +161,7 @@
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button data-dismiss="modal" class="btn btn-primary pull-right" style="width:48%" type="button" onclick="EntryPost()">Post</button>
+                            <button data-dismiss="modal" class="btn btn-primary pull-right" style="width:48%" type="button" onclick="ModalEntryPost()">Post</button>
                             <select id="tag-select-list-modal" class="form-control" style="width: 48%" aria-label="Default select example" name="TagID">
                             </select>
                         </div>

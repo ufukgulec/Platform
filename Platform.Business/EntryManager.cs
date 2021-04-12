@@ -75,7 +75,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> TodayEntries()
         {
-            return _entryRepository.EntryList().Where(x => x.EntryDate == DateTime.Now.Date).ToList();
+            return _entryRepository.EntryList(x => x.EntryDate == DateTime.Now.Date);
         }
     }
 }

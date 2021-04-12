@@ -15,7 +15,6 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
     /// </summary>
     public class EfEntryRepository : EfGenericRepository<Entry>, IEntryRepository
     {
-
         public EfEntryRepository() : base()
         {
 
@@ -26,9 +25,16 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>Entries</returns>
         public List<Entry> EntryList()
         {
-            var list = _context.Entries.Include(x=>x.Person).Include(x=>x.Tag).Include(x=>x.Likes).OrderByDescending(x => x.EntryID).AsNoTracking().ToList();
+            List<Entry> list = _context.Entries
+                .Include(x => x.Tag)
+                .Include(x => x.Person)
+                .Include(x => x.Likes)
+                .Where(x => x.IsValid == true && x.Person.IsValid == true && x.Tag.IsValid == true)
+                .OrderByDescending(x => x.EntryID)
+                .AsNoTracking()
+                .ToList();
 
-            return list.Where(x => x.IsValid == true && x.Person.IsValid == true && x.Tag.IsValid == true).ToList();
+            return list;
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
@@ -37,8 +43,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>Entries</returns>
         public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            var list = EntryList().AsQueryable().Where(expression).ToList();
-            return list;
+            return EntryList().AsQueryable().Where(expression).ToList();
         }
 
         /// <summary>

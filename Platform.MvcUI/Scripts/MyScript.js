@@ -108,6 +108,18 @@ function NewEntry() {
     }
 }
 /*Entry Post*/
+function ModalEntryPost() {
+    $.ajax({
+        method: 'POST',
+        url: '../Entry/Post',
+        data: $("#modal-post-form").serialize()
+    }).done(function () {
+        console.log("Başarılı gönderim");
+        TodayEntries();
+    }).fail(function () {
+        console.log("----HATA----");
+    });
+}
 function EntryPost() {
     $.ajax({
         method: 'POST',
@@ -116,6 +128,7 @@ function EntryPost() {
     }).done(function () {
         console.log("Başarılı gönderim");
         TodayEntries();
+        NewPostArea();
     }).fail(function () {
         console.log("----HATA----");
     });
