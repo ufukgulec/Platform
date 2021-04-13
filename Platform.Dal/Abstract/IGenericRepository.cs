@@ -36,12 +36,19 @@ namespace Platform.Dal.Abstract
         /// <returns>T List</returns>
         List<T> GetAll();
         /// <summary>
+        /// Include List
+        /// </summary>
+        /// <param name="tablename1">Birinci ilişkili tablo</param>
+        /// <param name="tablename2">İkinci ilişkili tablo</param>
+        /// <returns></returns>
+        List<T> GetAll(string tablename1, string tablename2);
+        /// <summary>
         /// Filter List T
         /// </summary>
         /// <param name="expression"></param>
         /// <returns>T List</returns>
         List<T> GetAll(Expression<Func<T, bool>> expression);
-        
+
         /// <summary>
         /// T varlığını dönderir
         /// </summary>

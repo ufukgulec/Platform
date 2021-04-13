@@ -36,6 +36,13 @@ namespace Platform.Interfaces
         /// <returns>Entries,Tags,People</returns>
         List<T> GetAll();
         /// <summary>
+        /// Include list
+        /// </summary>
+        /// <param name="tablename1">Birinci ilişkili tablo</param>
+        /// <param name="tablename2">İkinci ilişkili tablo</param>
+        /// <returns></returns>
+        List<T> GetAll(string tablename1, string tablename2);
+        /// <summary>
         /// Filtreli varlık listesi döner.
         /// </summary>
         /// <param name="expression">x=>x.EntryID==n</param>
@@ -52,7 +59,7 @@ namespace Platform.Interfaces
         /// </summary>
         /// <param name="expression"></param>
         /// <returns>True False</returns>
-        bool RemoveRange(Expression<Func<T,bool>> expression);
+        bool RemoveRange(Expression<Func<T, bool>> expression);
         /// <summary>
         /// Birincil anahtarı başka tabloda kullanılmayan tablolarda silme işlemi yapar.
         /// </summary>

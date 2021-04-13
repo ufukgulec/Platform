@@ -63,6 +63,16 @@ namespace Platform.Business
         {
             return _genericRepository.GetAll(expression);
         }
+        /// <summary>
+        /// GEneric list Include
+        /// </summary>
+        /// <param name="tablename1"></param>
+        /// <param name="tablename2"></param>
+        /// <returns></returns>
+        public List<T> GetAll(string tablename1, string tablename2)
+        {
+            return _genericRepository.GetAll(tablename1, tablename2);
+        }
 
         public IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select)
         {

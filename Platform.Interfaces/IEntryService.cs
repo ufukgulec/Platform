@@ -47,6 +47,12 @@ namespace Platform.Interfaces
         /// </summary>
         /// <returns>Entries</returns>
         List<Entry> TodayEntries();
+        /// <summary>
+        /// Popular Entry List
+        /// </summary>
+        /// <param name="value">Kaç tane çekmek istiyorsun</param>
+        /// <returns></returns>
+        List<Entry> PopularEntries(int a);
 
     }
 }

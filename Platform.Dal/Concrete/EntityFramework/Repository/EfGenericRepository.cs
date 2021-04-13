@@ -49,6 +49,11 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             return _context.Set<T>().AsNoTracking().Where(expression).ToList();
         }
 
+        public List<T> GetAll(string tablename1, string tablename2)
+        {
+            return _context.Set<T>().Include(tablename1).Include(tablename2).AsNoTracking().ToList();
+        }
+
         public IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select)
         {
             return _context.Set<T>().Select(select);

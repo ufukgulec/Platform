@@ -29,7 +29,10 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList()
         {
-            return _entryRepository.EntryList();
+            return _entryRepository.GetAll("Tag", "Person")
+                .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
+                .OrderByDescending(x => x.EntryID)
+                .ToList();
         }
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
@@ -38,7 +41,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            return _entryRepository.EntryList(expression);
+            return _entryRepository.GetAll(expression).Where(x => x.IsValid == true).ToList();
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
@@ -75,7 +78,17 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> TodayEntries()
         {
-            return _entryRepository.EntryList(x => x.EntryDate == DateTime.Now.Date);
+            return EntryList()
+                .Where(x => x.EntryDate == DateTime.Now.Date)
+                .ToList();
+        }
+
+        public List<Entry> PopularEntries(int a)
+        {
+            return EntryList()
+                .OrderByDescending(x => x.Likes.Count)
+                .Take(a)
+                .ToList();
         }
     }
 }

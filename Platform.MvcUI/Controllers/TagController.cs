@@ -14,7 +14,7 @@ namespace Platform.MvcUI.Controllers
     public class TagController : Controller
     {
         readonly IGenericService<Tag> tagService = new GenericManager<Tag>(new EfGenericRepository<Tag>());
-        CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
+        //CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public ActionResult Index()
         {
             var tagList = tagService.GetAll();
@@ -27,7 +27,7 @@ namespace Platform.MvcUI.Controllers
 
         public PartialViewResult TagSelectList()
         {
-            return PartialView("TagSelectList", cacheFonksiyon.TagsGet());
+            return PartialView("TagSelectList", tagService.GetAll());
         }
     }
 }
