@@ -33,7 +33,6 @@ namespace Platform.MvcUI.Controllers
         {
             return PartialView(entryService.TodayEntries());
         }
-
         public PartialViewResult Post()
         {
             return PartialView();
@@ -51,6 +50,7 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularEntries()
         {
+            Thread.Sleep(5000);
             return PartialView("MostPopularEntries", entryService.PopularEntries(5));
         }
     }

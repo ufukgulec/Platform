@@ -9,14 +9,14 @@
         $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
         $('#btnShow').toggle();
     });
+    /*New Post*/
+    NewPostArea();
+    /*Home Entries*/
+    TodayEntries();
     /*Popular Tags*/
     MostPopularTags();
     /*Popular Entries*/
     MostPopularEntries();
-    /*Home Entries*/
-    TodayEntries();
-    /*New Post*/
-    NewPostArea();
 });
 /*Loader*/
 function LoadingOpen(name) {

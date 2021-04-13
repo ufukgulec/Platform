@@ -20,8 +20,17 @@ namespace Platform.MvcUI.Controllers
             var tagList = tagService.GetAll();
             return View(tagList);
         }
+        [HttpPost]
+        public ActionResult TagAdd(Tag tag)
+        {
+            tag.IsValid = true;
+            tagService.Add(tag);
+
+            return RedirectToAction("Index");
+        }
         public PartialViewResult MostPopularTags()
         {
+            Thread.Sleep(5000);
             return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
         }
 

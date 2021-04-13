@@ -9,17 +9,17 @@
     <button id="new-tag-button" class="btn btn-success" style="width: 100%; margin-bottom: 10px;" onclick="NewTag()">Yeni</button>
 
     <div id="new-tag-area" style="display: none;" class="well">
-        <form id="new-tag-form" class="form-horizontal" role="form">
+        <form id="new-tag-form" class="form-horizontal" role="form" method="post" action="TagAdd">
             <h4>Yeni konu aç</h4>
             <div class="form-group" style="padding:14px; margin-bottom: 0">
-                <input class="form-control" placeholder="Tag name" />
+                <input class="form-control" placeholder="Tag name" name="TagName" />
 
             </div>
             <div class="form-group" style="padding:14px;">
-                <textarea class="form-control" placeholder="Tag description"></textarea>
+                <textarea class="form-control" placeholder="Tag description" name="TagDescription"></textarea>
             </div>
             <div class="form-group" style="padding:14px;">
-                <button class="btn btn-primary pull-right" style="width:100%" type="button">Gönder</button>
+                <input class="btn btn-primary pull-right" style="width:100%" type="submit" value="Gönder" />
             </div>
         </form>
     </div>
