@@ -12,10 +12,11 @@ namespace Platform.MvcUI.Controllers
     public class EntryController : Controller
     {
         IEntryService entryService;
-
-        public EntryController(IEntryService entryService)
+        ILikeService likeService;
+        public EntryController(IEntryService entryService, ILikeService likeService)
         {
             this.entryService = entryService;
+            this.likeService = likeService;
         }
 
         public ActionResult Index(int? id)
@@ -52,6 +53,17 @@ namespace Platform.MvcUI.Controllers
         {
             Thread.Sleep(5000);
             return PartialView("MostPopularEntries", entryService.PopularEntries(5));
+        }
+        public ActionResult Like(int id)
+        {
+            Like like = new Like
+            {
+                LikeDate = DateTime.Now.Date,
+                EntryID = id,
+                PersonID = 1
+            };
+            likeService.Add(like);
+            return RedirectToAction("Index");
         }
     }
 }
