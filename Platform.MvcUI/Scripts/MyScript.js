@@ -133,3 +133,11 @@ function EntryPost() {
         console.log("----HATA----");
     });
 }
+function EntryLike(id) {
+    $.ajax({
+        method: 'GET',
+        url: '../Entry/Like/' + id,
+    }).done(function () {
+        console.log("Başarılı Beğeni");
+    });
+}
