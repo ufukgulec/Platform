@@ -134,10 +134,13 @@ function EntryPost() {
     });
 }
 function EntryLike(id) {
-    $.ajax({
-        method: 'GET',
-        url: '../Entry/Like/' + id,
-    }).done(function () {
-        console.log("Başarılı Beğeni");
+    //$.ajax({
+    //    method: 'GET',
+    //    url: '../Entry/Like/' + id,
+    //}).done(function () {
+    //    console.log("Başarılı Beğeni");
+    //});
+    $.get("/Entry/Like/" + id, function (data) {
+        
     });
 }

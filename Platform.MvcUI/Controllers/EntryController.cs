@@ -63,7 +63,7 @@ namespace Platform.MvcUI.Controllers
                 PersonID = 1
             };
             likeService.Add(like);
-            return RedirectToAction("Index");
+            return null;
         }
     }
 }
