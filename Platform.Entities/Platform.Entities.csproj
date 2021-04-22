@@ -58,6 +58,7 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="PocoModels\PocoPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EntryView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
