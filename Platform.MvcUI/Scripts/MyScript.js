@@ -9,14 +9,16 @@
         $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
         $('#btnShow').toggle();
     });
-    /*New Post*/
-    NewPostArea();
-    /*Home Entries*/
-    TodayEntries();
-    /*Popular Tags*/
-    MostPopularTags();
-    /*Popular Entries*/
-    MostPopularEntries();
+    if ($(location).attr('pathname').includes("Home")) {
+        /*New Post*/
+        NewPostArea();
+        /*Home Entries*/
+        TodayEntries();
+        /*Popular Tags*/
+        MostPopularTags();
+        /*Popular Entries*/
+        MostPopularEntries();
+    }
 });
 /*Loader*/
 function LoadingOpen(name) {
@@ -141,6 +143,7 @@ function EntryLike(id) {
     //    console.log("Başarılı Beğeni");
     //});
     $.get("/Entry/Like/" + id, function (data) {
-        
+        $("#like-" + id).html(data);
+        console.log("Başarılı Beğeni");
     });
 }

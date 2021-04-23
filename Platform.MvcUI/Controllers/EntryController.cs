@@ -54,7 +54,7 @@ namespace Platform.MvcUI.Controllers
             entryService.Delete(id);
             return RedirectToAction("Index");
         }
-        public ActionResult Like(int id)
+        public PartialViewResult Like(int id)
         {
             Like like = new Like
             {
@@ -63,8 +63,8 @@ namespace Platform.MvcUI.Controllers
                 PersonID = 1
             };
             likeService.Add(like);
-            
-            return RedirectToAction("Index");
+
+            return PartialView(entryService.Get(id));
         }
     }
 }

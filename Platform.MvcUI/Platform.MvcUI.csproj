@@ -134,6 +134,7 @@
     <Content Include="Views\Entry\Post.cshtml" />
     <Content Include="Views\Tag\Index.cshtml" />
     <Content Include="Views\Entry\Index.cshtml" />
+    <Content Include="Views\Entry\Like.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
