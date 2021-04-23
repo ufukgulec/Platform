@@ -29,7 +29,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList()
         {
-            return _entryRepository.GetAll("Tag", "Person")
+            return _entryRepository.GetAll()
                 .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
                 .OrderByDescending(x => x.EntryID)
                 .ToList();
@@ -41,7 +41,10 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            return _entryRepository.GetAll(expression).Where(x => x.IsValid == true).ToList();
+            return _entryRepository.GetAll(expression)
+                .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
+                .OrderByDescending(x => x.EntryID)
+                .ToList();
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.

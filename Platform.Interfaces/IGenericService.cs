@@ -36,13 +36,6 @@ namespace Platform.Interfaces
         /// <returns>Entries,Tags,People</returns>
         List<T> GetAll();
         /// <summary>
-        /// Include list
-        /// </summary>
-        /// <param name="tablename1">Birinci ilişkili tablo</param>
-        /// <param name="tablename2">İkinci ilişkili tablo</param>
-        /// <returns></returns>
-        List<T> GetAll(string tablename1, string tablename2);
-        /// <summary>
         /// Filtreli varlık listesi döner.
         /// </summary>
         /// <param name="expression">x=>x.EntryID==n</param>
