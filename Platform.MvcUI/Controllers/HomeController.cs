@@ -22,7 +22,7 @@ namespace Platform.MvcUI.Controllers
         }
         public ActionResult Index()
         {
-            return View(entryService.GetAll()); // <----
+            return View(entryService.GetAll());
         }
     }
 }

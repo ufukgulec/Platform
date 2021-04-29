@@ -42,7 +42,7 @@
         <div id="icon-bar" class="container-fluid icon-bar">
             <a href="#"><i class='bx bxs-home'></i></a>
             <a href="#"><i class='bx bxs-tag-alt'></i></a>
-            <a href="#"><i id="post-icon" class='bx bxs-plus-circle'></i></a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#PostModal" data-bs-whatever="@@mdo"><i id="post-icon" class='bx bxs-plus-circle'></i></a>
             <a href="#"><i class='bx bxs-comment-detail'></i></a>
             <a href="javascript:void(0);" onclick="darkmode()"><i id="theme" class='bx bxs-moon'></i></a>
         </div>
@@ -57,13 +57,39 @@
     </div>
     <!-- Page End -->
     <!-- Modal Begin -->
+    <div class="modal fade" id="PostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Entry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="entry-title" class="col-form-label">Entry Title:</label>
+                            <input type="text" class="form-control" id="entry-title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="entry-article" class="col-form-label">Entry Article:</label>
+                            <textarea class="form-control" id="entry-article"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal End -->
     <!--Main js-->
-    <script src="/Content/assets/js/site.js"></script>
+    <script src="~/Content/assets/js/site.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
-    <script src="/Content/assets/js/jquery.js"></script>
+    <script src="~/Content/assets/js/jquery.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="/Content/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>
