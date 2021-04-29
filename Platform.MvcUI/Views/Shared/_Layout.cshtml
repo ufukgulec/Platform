@@ -1,10 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
+    <!-- Required meta tags -->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Platform</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- ===== BOOTSTRAP ===== -->
     <link href="~/Content/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- ===== MAİN CSS ===== -->
@@ -14,165 +18,52 @@
 
 </head>
 <body>
-    <div class="wrapper">
-        <div class="box">
-            <div class="row row-offcanvas row-offcanvas-left">
-
-                <!-- sidebar -->
-                <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
-
-                    <ul class="nav">
-                        <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class='bx bxs-chevron-right'></i></a></li>
-                    </ul>
-
-                    <ul class="nav hidden-xs" id="lg-menu">
-                        <li class="active">
-                            <a href="/" class="iconwithtext">
-                                <i class='bx bxs-home'></i>
-                                <span>Anasayfa</span>
-                            </a>
-                        </li>
-                        <li><a href="/Tag/Index" class="iconwithtext"><i class='bx bxl-slack-old'></i> <span>Konular</span></a></li>
-                        <li><a href="/Entry/Index" class="iconwithtext"><i class='bx bxs-message-square-detail'></i> <span>Yazılar</span> </a></li>
-                        <li><a href="/User/Index" class="iconwithtext"><i class='bx bxs-user-account'></i> <span>Kullanıcılar</span> </a></li>
-                        <li><a href="/User/Profil" class="iconwithtext"><i class='bx bxs-user-detail'></i> <span>Profilin</span> </a></li>
-                        <li><a href="/User/Logout" class="iconwithtext"><i class='bx bxs-log-out'></i> <span>Çıkış</span> </a></li>
-                    </ul>
-
-                    <!-- tiny only nav-->
-                    <ul class="nav visible-xs" id="xs-menu">
-                        <li class="active"><a href="/" class="text-center"><i class='bx bxs-home'></i></a></li>
-                        <li><a href="/Tag/Index" class="text-center"><i class='bx bxl-slack-old'></i></a></li>
-                        <li><a href="/Entry/Index" class="text-center"><i class='bx bxs-message-square-detail'></i></a></li>
-                        <li><a href="/User/Index" class="text-center"><i class='bx bxs-user-account'></i></a></li>
-                        <li><a href="#" class="text-center"><i class='bx bxs-user-detail'></i></a></li>
-                        <li><a href="/User/Logout" class="text-center"><i class='bx bxs-log-out'></i></a></li>
-                    </ul>
-
-                </div>
-                <!-- /sidebar -->
-                <!-- main right col -->
-                <div class="column col-sm-10 col-xs-11" id="main">
-
-                    <!-- top nav -->
-                    <div class="navbar navbar-blue navbar-static-top">
-                        <div class="navbar-header">
-                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a href="/" class="navbar-brand logo">p</a>
-                        </div>
-                        <nav class="collapse navbar-collapse" role="navigation">
-                            <form class="navbar-form navbar-left">
-                                <div class="input-group input-group-sm" style="max-width:360px;">
-                                    <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit"><i class='bx bx-search'></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="/">
-                                        <i class='bx bxs-home'></i>
-                                        <span class="nav__name">Anasayfa</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#postModal" role="button" data-toggle="modal">
-                                        <i class='bx bx-plus-medical nav__icon'></i>
-                                        <span class="nav__name">Post</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Entry/Index">
-                                        <i class='bx bxs-message-square-detail'></i>
-                                        <span class="nav__name">Entries</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='bx bxs-user-circle'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">More</a></li>
-                                        <li><a href="">More</a></li>
-                                        <li><a href="">More</a></li>
-                                        <li><a href="">More</a></li>
-                                        <li><a href="">More</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- /top nav -->
-
-                    <div class="padding">
-                        <div class="full col-sm-9">
-
-                            <!-- content -->
-                            <div class="row">
-                                @RenderBody()
-                                <div class="row" id="footer">
-                                    <div class="col-sm-6">
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p>
-                                            <a href="#" class="pull-right">©Copyright 2021</a>
-                                            <i class='bx bxl-css3'></i>
-                                            <i class='bx bxl-bootstrap'></i>
-                                            <i class='bx bxl-javascript'></i>
-                                            <i class='bx bxl-html5'></i>
-                                            <i class='bx bxl-jquery'></i>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div><!-- /col-9 -->
-                        </div><!-- /padding -->
-                    </div>
-                    <!-- /main -->
-
-                </div>
-            </div>
+    <!-- Navbar Begin -->
+    <!-- TopNavbar Begin -->
+    <div class="topnav">
+        <a href="#home" class="active">
+            <i class='bx bxs-book-reader bx-sm'></i>
+        </a>
+        <div id="myLinks">
+            <a href="#">Tags</a>
+            <a href="#">Entries</a>
+            <a href="#">Users</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="topnavbaropen()">
+            <i id="menu-switcher" class='bx bx-right-arrow bx-sm'></i>
+        </a>
+        <a href="#" class="user-icon">
+            <i class='bx bxs-user-circle bx-sm'></i>
+        </a>
+    </div>
+    <!-- TopNavbar End -->
+    <!-- Bottom iconbar Begin -->
+    <nav id="bottom-iconbar" class="navbar fixed-bottom navbar-expand-sm">
+        <div id="icon-bar" class="container-fluid icon-bar">
+            <a href="#"><i class='bx bxs-home'></i></a>
+            <a href="#"><i class='bx bxs-tag-alt'></i></a>
+            <a href="#"><i id="post-icon" class='bx bxs-plus-circle'></i></a>
+            <a href="#"><i class='bx bxs-comment-detail'></i></a>
+            <a href="javascript:void(0);" onclick="darkmode()"><i id="theme" class='bx bxs-moon'></i></a>
+        </div>
+    </nav>
+    <!-- Bottom iconbar End-->
+    <!-- Navbar End -->
+    <!-- Page Begin -->
+    <div class="container">
+        <div class="row pt-3 pb-5">
+            @RenderBody()
         </div>
     </div>
-    <!--post modal-->
-    <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    Update Status
-                </div>
-                <form class="form center-block" id="modal-post-form">
-                    <input type="text" hidden value="@Session["PersonID"]" name="PersonID" />
-                    <div class="modal-body">
-                        <div class="form-group" style="padding:14px; margin-bottom: 0">
-                            <input class="form-control" placeholder="Başlık" name="EntryTitle">
-                        </div>
-                        <div class="form-group" style="padding:14px;">
-                            <textarea class="form-control" placeholder="Metniniz" name="EntryArticle"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div>
-                            <button data-dismiss="modal" class="btn btn-primary pull-right" style="width:48%" type="button" onclick="ModalEntryPost()">Post</button>
-                            <select id="tag-select-list-modal" class="form-control" style="width: 48%" aria-label="Default select example" name="TagID">
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!-- Page End -->
+    <!-- Modal Begin -->
+    <!-- Modal End -->
+    <!--Main js-->
+    <script src="/Content/assets/js/site.js"></script>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="/Content/assets/js/jquery.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/Content/assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="~/Content/assets/js/jquery.js"></script>
-    <script src="~/Content/assets/js/bootstrap.js"></script>
-    <script src="~/Scripts/MyScript.js"></script>
 </body>
 </html>

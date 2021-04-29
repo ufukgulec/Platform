@@ -101,8 +101,9 @@
   <ItemGroup>
     <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\main.css" />
-    <Content Include="Content\assets\js\bootstrap.js" />
+    <Content Include="Content\assets\js\bootstrap.bundle.js" />
     <Content Include="Content\assets\js\jquery.js" />
+    <Content Include="Content\assets\js\site.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\MyScript.js" />
     <Content Include="Web.config" />
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Content\assets\css\bootstrap.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
