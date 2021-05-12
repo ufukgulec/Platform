@@ -158,4 +158,7 @@ textarea[type=text] {
 #more {
     display: none;
 }
+.more {
+    display: none;
+}
 /*Entry Details End*/

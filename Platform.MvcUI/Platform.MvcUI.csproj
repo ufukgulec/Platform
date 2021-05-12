@@ -133,11 +133,11 @@
     <Content Include="Views\Person\Login.cshtml" />
     <Content Include="Views\Person\Register.cshtml" />
     <Content Include="Views\Tag\TagSelectList.cshtml" />
-    <Content Include="Views\Entry\TodayEntryGetAll.cshtml" />
     <Content Include="Views\Entry\Post.cshtml" />
     <Content Include="Views\Tag\Index.cshtml" />
     <Content Include="Views\Entry\Index.cshtml" />
     <Content Include="Views\Entry\Like.cshtml" />
+    <Content Include="Views\Entry\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

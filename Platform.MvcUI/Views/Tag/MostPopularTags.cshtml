@@ -4,15 +4,34 @@
 @{
     Layout = null;
 }
-<div class="list-group">
-    @foreach (var item in Model)
-    {
-        <a href="/Entry/Index/@item.TagID" class="list-group-item">
-            <i class='bx bx-tag-alt'></i>
-            <span>@item.TagName</span>
-            <span class="badge bg-primary rounded-pill">
-                @item.Entries.Count
-            </span>
-        </a>
-    }
+<div class="row popular-tags">
+    <div class="list light-bordered">
+        <div class="row list-header">
+            <div class="col-3 all-tags">
+                <a href="/Tag/Index">
+                    <i class='bx bx-menu-alt-right bx-sm'></i>
+                </a>
+            </div>
+            <div class="col-6 list-name">
+                <p class="fw-bold">Popular Tags</p>
+            </div>
+            <div class="col-3 search">
+                <a href="">
+                    <i class='bx bx-search-alt bx-sm float-end'></i>
+                </a>
+            </div>
+            <hr />
+        </div>
+        <div class="row list-body">
+            <ul class="list-group list-group-flush">
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item">
+                        <a class="tag" href="/Entry/Index/@item.TagID">@item.TagName</a>
+                        <span class="badge bg-primary rounded-pill float-end">@item.Entries.Count</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>

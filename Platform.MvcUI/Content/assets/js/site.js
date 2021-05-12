@@ -60,10 +60,10 @@ function topnavbaropen() {
     var menuswitcher = document.getElementById("menu-switcher");
     menuswitcher.classList.toggle("bxs-left-arrow");
 }
-function ReadMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+function ReadMore(id) {
+    var dots = document.getElementById("dots-"+id);
+    var moreText = document.getElementById("more-"+id);
+    var btnText = document.getElementById("myBtn-"+id);
 
     if (dots.style.display === "none") {
         dots.style.display = "inline";

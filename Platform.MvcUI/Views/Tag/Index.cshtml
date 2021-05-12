@@ -5,38 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-sm-12">
-    <button id="new-tag-button" class="btn btn-success" style="width: 100%; margin-bottom: 10px;" onclick="NewTag()">Yeni</button>
-
-    <div id="new-tag-area" style="display: none;" class="well">
-        <form id="new-tag-form" class="form-horizontal" role="form" method="post" action="TagAdd">
-            <h4>Yeni konu aç</h4>
-            <div class="form-group" style="padding:14px; margin-bottom: 0">
-                <input class="form-control" placeholder="Tag name" name="TagName" />
-
+<div class="col-sm-6 right-side p-3 m-auto">
+    <div id="popular-tags-area-index">
+       <div class="row popular-tags">
+    <div class="list light-bordered">
+        <div class="row list-header">
+            <div class="col-3 all-tags">
+                <a href="/Tag/Add">
+                    <i class='bx bx-plus-circle bx-sm'></i>
+                </a>
             </div>
-            <div class="form-group" style="padding:14px;">
-                <textarea class="form-control" placeholder="Tag description" name="TagDescription"></textarea>
+            <div class="col-6 list-name">
+                <p class="fw-bold">Popular Tags</p>
             </div>
-            <div class="form-group" style="padding:14px;">
-                <input class="btn btn-primary pull-right" style="width:100%" type="submit" value="Gönder" />
+            <div class="col-3 search">
+                <a href="">
+                    <i class='bx bx-search-alt bx-sm float-end'></i>
+                </a>
             </div>
-        </form>
+            <hr />
+        </div>
+        <div class="row list-body">
+            <ul class="list-group list-group-flush">
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item">
+                        <a class="tag" href="/Entry/Index/@item.TagID">@item.TagName</a>
+                        <span class="badge bg-primary rounded-pill float-end">@item.Entries.Count</span>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
-    <div id="tags" class="list-group">
-
-        @foreach (var item in Model)
-        {
-            <a href="/Entry/Index/@item.TagID" class="list-group-item">
-                <i class='bx bx-tag-alt'></i>
-                <span>@item.TagName</span>
-                <span class="badge bg-primary rounded-pill">
-                    @item.Entries.Count
-                </span>
-                <br />
-                <small>@item.TagDescription</small>
-            </a>
-        }
-
+</div>
     </div>
 </div>

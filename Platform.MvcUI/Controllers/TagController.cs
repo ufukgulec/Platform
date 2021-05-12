@@ -17,7 +17,7 @@ namespace Platform.MvcUI.Controllers
         //CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public ActionResult Index()
         {
-            var tagList = tagService.GetAll();
+            var tagList = tagService.GetAll().OrderByDescending(x=>x.Entries.Count).ToList();
             return View(tagList);
         }
         [HttpPost]

@@ -1,27 +1,33 @@
 ﻿@using Platform.Entities.Models
 @model List<Entry>
-<div class="list-group">
-    @foreach (var item in Model)
-    {
-        <div id="popular-entry" class="list-group-item">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <a href="#">
-                        <h4>@item.EntryTitle</h4>
-                    </a>
-                    <a href="#"><i class='bx bx-user-circle'></i><span>@item.Person.Username</span></a>
-                </div>
-                <div class="panel-body">
-                    @if (item.EntryArticle.Length > 97)
-                    {
-                        <p>@item.EntryArticle.Substring(0, 97)...</p>
-                    }
-                    else
-                    {
-                        <p>@item.EntryArticle</p>
-                    }
-                </div>
+<div class="row popular-entries">
+    <div class="list light-bordered">
+        <div class="row list-header">
+            <div class="col-3 all-tags">
+                <a href="">
+                    <i class='bx bx-menu-alt-right bx-sm'></i>
+                </a>
             </div>
+            <div class="col-6 list-name">
+                <p class="fw-bold">Popular Entries</p>
+            </div>
+            <div class="col-3 search">
+                <a href="">
+                    <i class='bx bx-search-alt bx-sm float-end'></i>
+                </a>
+            </div>
+            <hr />
         </div>
-    }
+        <div class="row list-body">
+            <ul class="list-group list-group-flush">
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item">
+                        <a class="tag" href="/Entry/Detail/@item.EntryID">@item.EntryTitle</a>
+                        <span class="badge bg-primary rounded-pill float-end">@item.Likes.Count</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>

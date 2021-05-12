@@ -1,0 +1,141 @@
+﻿@using Platform.Entities.Models
+@model Entry
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-8 left-side p-3 m-auto">
+
+    <div class="row entry light-bordered">
+        <div class="col">
+            <div class="row entry-body">
+                <div class="col-3 user-photo">
+                    <img class="img-thumbnail" src="@Model.Person.PersonImgUrl" alt="" style="width:100%">
+                </div>
+                <div class="col-9 entry-content">
+                    <div class="row entry-top">
+                        <div class="col">
+                            <strong><a class="entry-header" href="">@Model.Tag.TagName</a></strong>
+                            <small><a class="entry-user" href=""> @Model.Person.Username</a></small>
+                        </div>
+                        <div class="col entry-tag" style="text-align:right">
+                            <strong>
+                                <a class="entry-header" href="">
+                                    <i class='bx bxs-tag-alt'></i>
+                                    <span class="align-span">@Model.Tag.TagName</span>
+                                </a>
+                            </strong>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row entry-body">
+                        <div class="col entry-article">
+                            @if (Model.EntryArticle.Length > 297)
+                            {
+                                <p>@Model.EntryArticle.Substring(0, 297)<span id="dots-@Model.EntryID">...</span><span style="display:none" class="more" id="more-@Model.EntryID">@Model.EntryArticle.Substring(297)</span></p>
+                            }
+                            else
+                            {
+                                <p>@Model.EntryArticle</p>
+                            }
+                            <button onclick="ReadMore(@Model.EntryID)" id="myBtn-@Model.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row entry-counters">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-6 entry-like-count">
+                                    <i class='bx bx-heart bx-sm'></i>
+                                    <span class="align-span">@Model.Likes.Count</span>
+                                </div>
+                                <div class="col-6 entry-reply-count">
+                                    <i class='bx bx-share bx-sm'></i>
+                                    <span class="align-span">@Model.Replies.Count</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 entry-date" style="text-align:right">
+                            <i class='bx bx-calendar bx-sm'></i>
+                            @{DateTime dt = (DateTime)Model.EntryDate;}
+                            <span class="align-span">@dt.ToString("dd.MM.yyyy")</span>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row entry-button text-center">
+                        <div class="col-4">
+                            <a href="" id="button">
+                                <i class='bx bxs-share bx-sm bx-tada-hover'></i>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="">
+                                <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="">
+                                <i class='bx bx-dots-vertical bx-sm bx-tada-hover'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="writer">
+                        <div class="col">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="img-thumbnail" src="https://www.w3schools.com/tags/img_girl.jpg" alt="" style="width:50%;float:right">
+                                    </div>
+                                    <div class="col-9">
+
+                                        <textarea type="text" class="form-control" id="txtReply" placeholder="Yorumunuz:"></textarea>
+                                        <br />
+                                        <button class="btn btn-primary btn-sm float-end">
+                                            Gönder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row reply-body">
+                <div class="col">
+                    <div class="row reply-header">
+                        <strong>Replies</strong>
+                    </div>
+                    <hr />
+                    @foreach (var item in Model.Replies)
+                    {
+                        <div class="row reply">
+                            <div class="col-3">
+                                <img class="img-thumbnail" src="https://www.w3schools.com/tags/img_girl.jpg" alt="" style="width:50%; float:right">
+                            </div>
+                            <div class="col-9">
+                                <div class="row user">
+                                    <div class="col">
+                                        <strong><a class="entry-header" href="">@item.Person.PersonName</a></strong>
+                                        <small><a class="entry-user" href=""> @@@item.Person.Username</a></small>
+                                        @{DateTime dr = (DateTime)item.ReplyDate;}
+                                        <small class="float-end">@dr.ToString("dd.MM.yyyy")</small>
+                                    </div>
+                                </div>
+                                <div class="row reply-article">
+                                    <p>
+                                        @item.ReplyArticle
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

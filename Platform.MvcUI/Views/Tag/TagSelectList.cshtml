@@ -1,6 +1,6 @@
 ﻿@model List<Platform.Entities.Models.Tag>
-<select class="form-select" aria-label="Default select example">
-    <option selected>Konu seçiniz</option>
+<select id="tag-select" class="form-select form-select-sm" aria-label="Default select example">
+    <option selected>Tags</option>
     @foreach (var item in Model)
     {
         <option value="@item.TagID">@item.TagName</option>
