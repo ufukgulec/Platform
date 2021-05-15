@@ -1,9 +1,17 @@
 ﻿$(function () {
     /*Sayfa yüklendikten sonra çalışacak komutlar*/
+    //PostArea();
+    //MostPopularTags();
+    //MostPopularEntries();
+    if ($(location).attr("href").concat("Home")) {
+        HomePage();
+    }
+});
+function HomePage() {
     PostArea();
     MostPopularTags();
     MostPopularEntries();
-});
+}
 /*Loading Anim Methods*/
 function LoadingAnimOpen(name) {
     $("#loading-" + name).show(300);
