@@ -7,36 +7,58 @@
 
 <div class="col-sm-6 right-side p-3 m-auto">
     <div id="popular-tags-area-index">
-       <div class="row popular-tags">
-    <div class="list light-bordered">
-        <div class="row list-header">
-            <div class="col-3 all-tags">
-                <a href="/Tag/Add">
-                    <i class='bx bx-plus-circle bx-sm'></i>
-                </a>
+        <div class="row popular-tags">
+            <div class="list light-bordered">
+                <div class="row list-header">
+                    <div class="col-3 all-tags">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#tag">
+                            <i class='bx bx-plus-circle bx-sm'></i>
+                        </a>
+                    </div>
+                    <div class="col-6 list-name">
+                        <p class="fw-bold">Popular Tags</p>
+                    </div>
+                    <div class="col-3 search">
+                        <a href="">
+                            <i class='bx bx-search-alt bx-sm float-end'></i>
+                        </a>
+                    </div>
+                    <hr />
+                </div>
+                <div class="row list-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var item in Model)
+                        {
+                            <li class="list-group-item">
+                                <a class="tag" href="/Entry/Index/@item.TagID">@item.TagName</a>
+                                <span class="badge bg-primary rounded-pill float-end">@item.Entries.Count</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
-            <div class="col-6 list-name">
-                <p class="fw-bold">Popular Tags</p>
-            </div>
-            <div class="col-3 search">
-                <a href="">
-                    <i class='bx bx-search-alt bx-sm float-end'></i>
-                </a>
-            </div>
-            <hr />
-        </div>
-        <div class="row list-body">
-            <ul class="list-group list-group-flush">
-                @foreach (var item in Model)
-                {
-                    <li class="list-group-item">
-                        <a class="tag" href="/Entry/Index/@item.TagID">@item.TagName</a>
-                        <span class="badge bg-primary rounded-pill float-end">@item.Entries.Count</span>
-                    </li>
-                }
-            </ul>
         </div>
     </div>
 </div>
+<div class="modal fade" id="tag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="post" action="/Tag/TagAdd" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni Konu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <input type="text" name="TagName" class="form-control" placeholder="Tag Name" />
+                </div>
+                <div class="mb-3">
+                    <textarea type="text" name="TagDescription" class="form-control" rows="3" placeholder="Tag Description"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
     </div>
 </div>

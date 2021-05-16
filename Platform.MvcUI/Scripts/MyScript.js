@@ -3,9 +3,7 @@
     //PostArea();
     //MostPopularTags();
     //MostPopularEntries();
-    if ($(location).attr("href").concat("Home")) {
-        HomePage();
-    }
+    HomePage();
 });
 function HomePage() {
     PostArea();
