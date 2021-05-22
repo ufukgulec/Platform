@@ -33,7 +33,8 @@ namespace Platform.MvcUI.Controllers
                     var user = personService.Login(person.Username, person.Password);
                     if (user != null)
                     {
-                        TempData["Username"] = user.Username;
+                        Session["user-photo"] = user.PersonImgUrl;
+                        Session["username"] = user.Username;
                         Session["PersonID"] = user.PersonID;
                         return RedirectToAction("Index", "Home");
                     }

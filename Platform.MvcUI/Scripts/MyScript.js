@@ -72,7 +72,7 @@ function EntryPost() {
     $.ajax({
         method: 'POST',
         url: '../Entry/Post',
-        data: $("#post-form").serialize()
+        data: $("#entry-post").serialize()
     }).done(function () {
         console.log("Başarılı gönderim");
         TodayEntries();

@@ -1,21 +1,15 @@
 ﻿<div class="row post light-bordered">
     <div class="col-3 user-photo">
-        <img class="img-thumbnail" src="https://www.w3schools.com/tags/img_girl.jpg" alt="" style="width:100%">
+        <img class="img-thumbnail" src="@Session["user-photo"]" alt="" style="width:100%">
     </div>
     <div class="col-9 post-detail">
         <form method="post" id="entry-post">
             <div class="row">
                 <div class="col">
                     <strong>Write something</strong>
-                    <small><a class="post-user" href=""> @@ufukgulecc</a></small>
+                    <small><a class="post-user" href=""> @@@Session["username"]</a></small>
                 </div>
                 <div class="col post-tag" style="text-align:right">
-                    @*<select id="tag-select" class="form-select form-select-sm" aria-label="Default select example">
-                            <option selected>Tags</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>*@
                     <div id="tag-select-list">
                         <!--Jquery-->
                     </div>
@@ -23,12 +17,13 @@
             </div>
             <hr />
             <div class="row post-body">
+                <input name="PersonID" hidden value="@Session["PersonID"]" />
                 <div class="col post-article">
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Entry Title" />
+                        <input name="EntryTitle" type="text" class="form-control" placeholder="Entry Title" />
                     </div>
                     <div class="mb-3">
-                        <textarea type="text" class="form-control" rows="3" placeholder="Entry Article"></textarea>
+                        <textarea name="EntryArticle" type="text" class="form-control" rows="3" placeholder="Entry Article"></textarea>
                     </div>
                 </div>
             </div>
@@ -36,7 +31,7 @@
                 <div class="col-6 float-end">
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-primary float-end float-end">
+                    <button class="btn btn-primary float-end float-end" type="button" onclick="EntryPost()">
                         <i class='bx bxs-comment-add bx-sm' style="vertical-align: middle;"></i>
                     </button>
                 </div>

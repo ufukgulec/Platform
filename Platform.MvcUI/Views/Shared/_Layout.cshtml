@@ -65,20 +65,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="modal-post-form" method="post">
+                        <input name="PersonID" hidden value="@Session["PersonID"]" />
+                        <div id="tag-select-list-modal">
+                            <!--Jquery-->
+                        </div>
                         <div class="mb-3">
                             <label for="entry-title" class="col-form-label">Entry Title:</label>
-                            <input type="text" class="form-control" id="entry-title">
+                            <input name="EntryTitle" type="text" class="form-control" id="entry-title">
                         </div>
                         <div class="mb-3">
                             <label for="entry-article" class="col-form-label">Entry Article:</label>
-                            <textarea class="form-control" id="entry-article"></textarea>
+                            <textarea name="EntryArticle" class="form-control" id="entry-article"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Post</button>
+                    <button type="button" onclick="ModalEntryPost()" class="btn btn-primary">Post</button>
                 </div>
             </div>
         </div>

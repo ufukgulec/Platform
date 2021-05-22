@@ -50,6 +50,8 @@ namespace Platform.MvcUI.Controllers
         [HttpPost]
         public ActionResult Post(Entry entry)
         {
+            entry.EntryDate = DateTime.Now.Date;
+            entry.IsValid = true;
             entryService.Post(entry);
             return RedirectToAction("Index");
         }

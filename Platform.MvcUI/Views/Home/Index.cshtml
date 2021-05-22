@@ -37,12 +37,13 @@
                                 @if (item.EntryArticle.Length > 297)
                                 {
                                     <p>@item.EntryArticle.Substring(0, 297)<span id="dots-@item.EntryID">...</span><span style="display:none" class="more" id="more-@item.EntryID">@item.EntryArticle.Substring(297)</span></p>
+                                    <button onclick="ReadMore(@item.EntryID)" id="myBtn-@item.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
+
                                 }
                                 else
                                 {
                                     <p>@item.EntryArticle</p>
                                 }
-                                <button onclick="ReadMore(@item.EntryID)" id="myBtn-@item.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
 
                             </div>
                         </div>
