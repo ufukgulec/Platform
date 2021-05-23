@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col">
                     <strong>Write something</strong>
-                    <small><a class="post-user" href=""> @@@Session["username"]</a></small>
+                    <small><a class="post-user" href=""> @@@HttpContext.Current.User.Identity.Name</a></small>
                 </div>
                 <div class="col post-tag" style="text-align:right">
                     <div id="tag-select-list">

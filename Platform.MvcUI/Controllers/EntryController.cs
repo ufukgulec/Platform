@@ -7,6 +7,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Platform.MvcUI.Controllers
 {
     public class EntryController : Controller
@@ -66,7 +67,7 @@ namespace Platform.MvcUI.Controllers
             {
                 LikeDate = DateTime.Now.Date,
                 EntryID = id,
-                PersonID = 1
+                PersonID = 1//Authroize ile 
             };
             likeService.Add(like);
 

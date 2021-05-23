@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Platform.MvcUI.Controllers
 {
@@ -33,12 +34,11 @@ namespace Platform.MvcUI.Controllers
                     var user = personService.Login(person.Username, person.Password);
                     if (user != null)
                     {
+                        FormsAuthentication.SetAuthCookie(user.Username, false);
                         Session["user-photo"] = user.PersonImgUrl;
-                        Session["username"] = user.Username;
                         Session["PersonID"] = user.PersonID;
                         return RedirectToAction("Index", "Home");
                     }
-
                 }
                 else
                 {

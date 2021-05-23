@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="Models\ViewPersonLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Role.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
