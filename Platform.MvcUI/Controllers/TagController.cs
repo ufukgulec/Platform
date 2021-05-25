@@ -17,6 +17,7 @@ namespace Platform.MvcUI.Controllers
         //CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public ActionResult Index()
         {
+            
             var tagList = tagService.GetAll().OrderByDescending(x=>x.Entries.Count).ToList();
             return View(tagList);
         }
@@ -30,10 +31,14 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularTags()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
             return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
         }
 
+        /// <summary>
+        /// Entry Post işleminde konu seçimi için
+        /// </summary>
+        /// <returns></returns>
         public PartialViewResult TagSelectList()
         {
             return PartialView("TagSelectList", tagService.GetAll());

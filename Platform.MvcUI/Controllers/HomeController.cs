@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Platform.MvcUI.Controllers
 {
@@ -24,6 +25,10 @@ namespace Platform.MvcUI.Controllers
         public ActionResult Index()
         {
             return View(entryService.EntryList());
+        }
+        public void Theme(string name)
+        {
+            FormsAuthentication.SetAuthCookie(name, false);
         }
     }
 }

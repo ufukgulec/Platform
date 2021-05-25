@@ -1,8 +1,5 @@
 ﻿$(function () {
     /*Sayfa yüklendikten sonra çalışacak komutlar*/
-    //PostArea();
-    //MostPopularTags();
-    //MostPopularEntries();
     HomePage();
 });
 function HomePage() {
@@ -75,8 +72,7 @@ function EntryPost() {
         data: $("#entry-post").serialize()
     }).done(function () {
         console.log("Başarılı gönderim");
-        TodayEntries();
-        NewPostArea();
+        PostArea();
     }).fail(function () {
         console.log("----HATA----");
     });
