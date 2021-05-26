@@ -26,9 +26,5 @@ namespace Platform.MvcUI.Controllers
         {
             return View(entryService.EntryList());
         }
-        public void Theme(string name)
-        {
-            FormsAuthentication.SetAuthCookie(name, false);
-        }
     }
 }

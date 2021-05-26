@@ -6,6 +6,7 @@ function HomePage() {
     PostArea();
     MostPopularTags();
     MostPopularEntries();
+    EntryList();
 }
 /*Loading Anim Methods*/
 function LoadingAnimOpen(name) {
@@ -15,6 +16,12 @@ function LoadingAnimClose(name) {
     $("#loading-" + name).hide(300);
 }
 /*Data Extractions*/
+function EntryList() {
+    $.get("/Entry/GetEntries", function (data) {
+        console.log("Gönderiler çekildi...");
+        $("#entry-list-area").html(data);
+    });
+}
 function PostArea() {
     $.get("/Entry/Post", function (data) {
         console.log("yeni post alanı oluşturuldu...");
@@ -60,7 +67,13 @@ function ModalEntryPost() {
         data: $("#modal-post-form").serialize()
     }).done(function () {
         console.log("Başarılı gönderim");
-        TodayEntries();
+        EntryList();
+        $('#PostModal').modal('hide');
+        $('#PostModal').on('hidden.bs.modal', function (e) {
+            $('#entry-title').val('');
+            $('#entry-article').val('');
+            $('#tag-select').val('Tags');
+        })
     }).fail(function () {
         console.log("----HATA----");
     });
@@ -73,6 +86,7 @@ function EntryPost() {
     }).done(function () {
         console.log("Başarılı gönderim");
         PostArea();
+        EntryList();
     }).fail(function () {
         console.log("----HATA----");
     });

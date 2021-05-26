@@ -1,9 +1,6 @@
 ﻿@using Platform.Entities.Models
 @model List<Entry>
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 <div class="row home-entries">
     <div class="col">
         @foreach (var item in Model)
@@ -15,12 +12,12 @@
                 <div class="col-9 entry-detail">
                     <div class="row">
                         <div class="col">
-                            <strong><a class="entry-header" href="">@item.EntryTitle</a></strong>
-                            <small><a class="entry-user" href=""> @@@item.Person.Username</a></small>
+                            <strong><a class="entry-header" href="/Entry/Detail/@item.EntryID">@item.EntryTitle</a></strong>
+                            <small><a class="entry-user" href="/User/Detail/"> @@@item.Person.Username</a></small>
                         </div>
                         <div class="col entry-tag" style="text-align:right">
                             <strong>
-                                <a class="entry-header" href="">
+                                <a class="entry-header" href="/Entry/Index/@item.TagID">
                                     <i class='bx bxs-tag-alt'></i>
                                     <span class="align-span">@item.Tag.TagName</span>
                                 </a>
@@ -34,12 +31,12 @@
                             {
                                 <p>@item.EntryArticle.Substring(0, 297)<span id="dots-@item.EntryID">...</span><span style="display:none" class="more" id="more-@item.EntryID">@item.EntryArticle.Substring(297)</span></p>
                                 <button onclick="ReadMore(@item.EntryID)" id="myBtn-@item.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
+
                             }
                             else
                             {
                                 <p>@item.EntryArticle</p>
                             }
-
 
                         </div>
                     </div>

@@ -139,6 +139,7 @@
     <Content Include="Views\Entry\Index.cshtml" />
     <Content Include="Views\Entry\Like.cshtml" />
     <Content Include="Views\Entry\Detail.cshtml" />
+    <Content Include="Views\Entry\GetEntries.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

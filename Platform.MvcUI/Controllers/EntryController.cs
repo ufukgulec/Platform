@@ -34,6 +34,17 @@ namespace Platform.MvcUI.Controllers
         {
             return View(entryService.Get(id));
         }
+        public PartialViewResult GetEntries(int ? id)
+        {
+            if (id == null)
+            {
+                return PartialView(entryService.EntryList());
+            }
+            else
+            {
+                return PartialView(entryService.EntryList(x => x.TagID == id));
+            }
+        }
         public PartialViewResult TodayEntryGetAll()
         {
             return PartialView(entryService.TodayEntries());
