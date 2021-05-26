@@ -13,10 +13,12 @@ namespace Platform.MvcUI.Controllers
     {
         IEntryService entryService;
         ILikeService likeService;
-        public EntryController(IEntryService entryService, ILikeService likeService)
+        IPersonService personService;
+        public EntryController(IEntryService entryService, ILikeService likeService, IPersonService personService)
         {
             this.entryService = entryService;
             this.likeService = likeService;
+            this.personService = personService;
         }
 
         public ActionResult Index(int? id)
@@ -34,7 +36,7 @@ namespace Platform.MvcUI.Controllers
         {
             return View(entryService.Get(id));
         }
-        public PartialViewResult GetEntries(int ? id)
+        public PartialViewResult GetEntries(int? id)
         {
             if (id == null)
             {
@@ -73,13 +75,23 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult Like(int id)
         {
-            Like like = new Like
+            var user = personService.GetAll().Where(x => x.Username == HttpContext.User.Identity.Name).FirstOrDefault();
+            var controlLike = likeService.GetAll().Where(x => x.PersonID == user.PersonID && x.EntryID == id).FirstOrDefault();
+            if (controlLike != null)
             {
-                LikeDate = DateTime.Now.Date,
-                EntryID = id,
-                PersonID = 1//Authroize ile 
-            };
-            likeService.Add(like);
+                likeService.Remove(controlLike.LikeID);
+            }
+            else
+            {
+                Like like = new Like
+                {
+                    LikeDate = DateTime.Now.Date,
+                    EntryID = id,
+                    PersonID = user.PersonID
+                };
+                likeService.Add(like);
+            }
+
 
             return PartialView(entryService.Get(id));
         }
