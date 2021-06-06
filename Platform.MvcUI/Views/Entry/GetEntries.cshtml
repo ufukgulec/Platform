@@ -68,30 +68,9 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            @if (item.Likes.Count > 0)
-                            {
-                                foreach (var like in item.Likes)
-                                {
-                                    if (like.Person.Username == HttpContext.Current.User.Identity.Name)
-                                    {
-                                        <a href="javascript:void(0);" id="post-like-@item.EntryID" onclick="PostLike(@item.EntryID)">
-                                            <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a href="javascript:void(0);" id="post-like-@item.EntryID" onclick="PostLike(@item.EntryID)">
-                                            <i class='bx bx-heart bx-sm bx-tada-hover'></i>
-                                        </a>
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                <a href="javascript:void(0);" id="post-like-@item.EntryID" onclick="PostLike(@item.EntryID)">
-                                    <i class='bx bx-heart bx-sm bx-tada-hover'></i>
-                                </a>
-                            }
+                            <a href="">
+                                <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
+                            </a>
                         </div>
                         <div class="col-4">
                             <a href="">
