@@ -91,3 +91,8 @@ function EntryPost() {
         console.log("----HATA----");
     });
 }
+function PostLike(id) {
+    $.get("/Entry/Like/" + id, function (data) {
+        EntryList();
+    });
+}
