@@ -40,14 +40,16 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             _context.Entries.Remove(entry);
             return _context.SaveChanges() > 0;
         }
-        public List<Entry> EntryList()
+        public List<Entry> List()
         {
-            return GetAll().Include(x => x.Tag).ToList();
+            var list = GetAll().Include(x => x.Tag).ToList();
+            return list;
         }
 
-        public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
+        public List<Entry> List(Expression<Func<Entry, bool>> expression)
         {
-            return GetAll(expression).Include(x => x.Tag).ToList();
+            var list = GetAll(expression).Include(x => x.Tag).ToList();
+            return list;
         }
     }
 }

@@ -17,13 +17,13 @@ namespace Platform.Dal.Abstract
         /// Tag List
         /// </summary>
         /// <returns>Tags</returns>
-        List<Entry> EntryList();
+        List<Entry> List();
         /// <summary>
         /// IsValid değeri(Tag.isValid) TRUE olan ve koşula göre Tag listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.TagID>0</param>
         /// <returns>Tags</returns>
-        List<Entry> EntryList(Expression<Func<Entry, bool>> expression);
+        List<Entry> List(Expression<Func<Entry, bool>> expression);
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>

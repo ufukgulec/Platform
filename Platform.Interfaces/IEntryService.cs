@@ -17,13 +17,13 @@ namespace Platform.Interfaces
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
         /// </summary>
         /// <returns>Entries</returns>
-        List<Entry> EntryList();
+        List<Entry> List();
         /// <summary>
         /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID>0</param>
         /// <returns>Entries</returns>
-        List<Entry> EntryList(Expression<Func<Entry, bool>> expression);
+        List<Entry> List(Expression<Func<Entry, bool>> expression);
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>

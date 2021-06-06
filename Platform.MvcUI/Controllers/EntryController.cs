@@ -23,26 +23,30 @@ namespace Platform.MvcUI.Controllers
         {
             if (id == null)
             {
-                return View(entryService.EntryList());
+                var list = entryService.List();
+                return View(list);
             }
             else
             {
-                return View(entryService.EntryList(x => x.TagID == id));
+                var list = entryService.List(x => x.TagID == id);
+                return View(list);
             }
         }
         public ActionResult Detail(int id)
         {
             return View(entryService.Get(id));
         }
-        public PartialViewResult GetEntries(int ? id)
+        public PartialViewResult GetEntries(int? id)
         {
             if (id == null)
             {
-                return PartialView(entryService.EntryList());
+                var list = entryService.List();
+                return PartialView(list);
             }
             else
             {
-                return PartialView(entryService.EntryList(x => x.TagID == id));
+                var list = entryService.List(x => x.TagID == id);
+                return PartialView(list);
             }
         }
         public PartialViewResult TodayEntryGetAll()

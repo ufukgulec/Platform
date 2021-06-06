@@ -24,7 +24,7 @@ namespace Platform.MvcUI.Controllers
         }
         public ActionResult Index()
         {
-            return View(entryService.EntryList());
+            return View(entryService.List());
         }
     }
 }

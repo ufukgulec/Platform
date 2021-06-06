@@ -41,7 +41,8 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
 
         public IQueryable<T> GetAll()
         {
-            return _context.Set<T>().AsNoTracking();
+            var list = _context.Set<T>().AsNoTracking();
+            return list;
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
