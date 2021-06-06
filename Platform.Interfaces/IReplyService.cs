@@ -14,13 +14,13 @@ namespace Platform.Interfaces
         /// IsValid değeri TRUE olan Reply listesini döner.
         /// </summary>
         /// <returns>Replies</returns>
-        List<Reply> ActiveReplyGetAll();
+        List<Reply> List();
         /// <summary>
         /// IsValid değeri TRUE olan ve koşula göre Reply listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.ReplyID>0</param>
         /// <returns>Replies</returns>
-        List<Reply> ActiveReplyGetAll(Expression<Func<Reply, bool>> expression);
+        List<Reply> List(Expression<Func<Reply, bool>> expression);
         /// <summary>
         /// Bugünkü Reply Listesi
         /// </summary>

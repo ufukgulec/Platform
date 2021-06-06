@@ -19,14 +19,14 @@ namespace Platform.Business
             _replyRepository = replyRepository;
         }
 
-        public List<Reply> ActiveReplyGetAll()
+        public List<Reply> List()
         {
-            return _replyRepository.ActiveReplyGetAll();
+            return _replyRepository.List();
         }
 
-        public List<Reply> ActiveReplyGetAll(Expression<Func<Reply, bool>> expression)
+        public List<Reply> List(Expression<Func<Reply, bool>> expression)
         {
-            return _replyRepository.ActiveReplyGetAll(expression);
+            return _replyRepository.List(expression);
         }
 
         public List<Reply> TodayReplyGetAll()

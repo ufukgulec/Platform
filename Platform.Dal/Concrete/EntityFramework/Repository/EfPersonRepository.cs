@@ -22,7 +22,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// IsValid değeri TRUE olan Person listesini döner.
         /// </summary>
         /// <returns>People</returns>
-        public List<Person> ActivePersonGetAll()
+        public List<Person> List()
         {
             return _context.People.Where(x => x.IsValid == true).ToList();
         }
@@ -31,9 +31,9 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// </summary>
         /// <param name="expression">Koşul x=>x.PersonID>0</param>
         /// <returns>People</returns>
-        public List<Person> ActivePersonGetAll(Expression<Func<Person, bool>> expression)
+        public List<Person> List(Expression<Func<Person, bool>> expression)
         {
-            return ActivePersonGetAll().AsQueryable().Where(expression).ToList();
+            return List().AsQueryable().Where(expression).ToList();
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.

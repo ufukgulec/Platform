@@ -19,7 +19,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// IsValid değeri TRUE olan Reply listesini döner.
         /// </summary>
         /// <returns>Replies</returns>
-        public List<Reply> ActiveReplyGetAll()
+        public List<Reply> List()
         {
             return _context.Replies.Where(x => x.IsValid == true && x.Entry.IsValid == true && x.Person.IsValid == true).ToList();
         }
@@ -28,9 +28,9 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// </summary>
         /// <param name="expression">Koşul x=>x.ReplyID>0</param>
         /// <returns>Replies</returns>
-        public List<Reply> ActiveReplyGetAll(Expression<Func<Reply, bool>> expression)
+        public List<Reply> List(Expression<Func<Reply, bool>> expression)
         {
-            return ActiveReplyGetAll().AsQueryable().Where(expression).ToList();
+            return List().AsQueryable().Where(expression).ToList();
         }
         /// <summary>
         /// Bugünkü Reply Listesi
@@ -38,7 +38,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         /// <returns>Replies</returns>
         public List<Reply> TodayReplyGetAll()
         {
-            return ActiveReplyGetAll().Where(x => x.ReplyDate.Equals(DateTime.Now)).ToList();
+            return List().Where(x => x.ReplyDate.Equals(DateTime.Now)).ToList();
         }
     }
 }

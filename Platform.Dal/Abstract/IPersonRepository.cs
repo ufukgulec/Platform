@@ -17,13 +17,13 @@ namespace Platform.Dal.Abstract
         /// IsValid değeri TRUE olan Person listesini döner.
         /// </summary>
         /// <returns>People</returns>
-        List<Person> ActivePersonGetAll();
+        List<Person> List();
         /// <summary>
         /// IsValid değeri TRUE olan ve koşula göre Person listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.PersonID>0</param>
         /// <returns>People</returns>
-        List<Person> ActivePersonGetAll(Expression<Func<Person, bool>> expression);
+        List<Person> List(Expression<Func<Person, bool>> expression);
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
         /// </summary>

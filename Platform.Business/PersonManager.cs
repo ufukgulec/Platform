@@ -26,18 +26,18 @@ namespace Platform.Business
         /// IsValid değeri TRUE olan Person listesini döner.
         /// </summary>
         /// <returns>People</returns>
-        public List<Person> ActivePersonGetAll()
+        public List<Person> List()
         {
-            return _personRepository.ActivePersonGetAll();
+            return _personRepository.List();
         }
         /// <summary>
         /// IsValid değeri TRUE olan ve koşula göre Person listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.PersonID>0</param>
         /// <returns>People</returns>
-        public List<Person> ActivePersonGetAll(Expression<Func<Person, bool>> expression)
+        public List<Person> List(Expression<Func<Person, bool>> expression)
         {
-            return _personRepository.ActivePersonGetAll(expression);
+            return _personRepository.List(expression);
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like,Entry) siler.
