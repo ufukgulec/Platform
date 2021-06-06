@@ -46,6 +46,7 @@
     <Compile Include="ILikeService.cs" />
     <Compile Include="IPersonService.cs" />
     <Compile Include="IReplyService.cs" />
+    <Compile Include="ITagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,7 @@ namespace Platform.Business
         public List<Entry> EntryList()
         {
             return _entryRepository.GetAll()
-                .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
+                .Where(x => x.IsValid == true)
                 .OrderByDescending(x => x.EntryID)
                 .ToList();
         }

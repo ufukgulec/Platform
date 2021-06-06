@@ -27,6 +27,7 @@ namespace Platform.MvcUI.App_Start
             this.kernel.Bind<IPersonService>().To<PersonManager>().WithConstructorArgument("personRepository", new EfPersonRepository());
             this.kernel.Bind<ILikeService>().To<LikeManager>().WithConstructorArgument("likeRepository", new EfLikeRepository());
             this.kernel.Bind<IReplyService>().To<ReplyManager>().WithConstructorArgument("replyRepository", new EfReplyRepository());
+            this.kernel.Bind<ITagService>().To<TagManager>().WithConstructorArgument("tagRepository", new EfTagRepository());
         }
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
