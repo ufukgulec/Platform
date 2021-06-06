@@ -34,13 +34,13 @@ namespace Platform.Interfaces
         /// Varlık listesi döner.
         /// </summary>
         /// <returns>Entries,Tags,People</returns>
-        List<T> GetAll();
+        IQueryable<T> GetAll();
         /// <summary>
         /// Filtreli varlık listesi döner.
         /// </summary>
         /// <param name="expression">x=>x.EntryID==n</param>
         /// <returns>Filter Entries,Tags,People</returns>
-        List<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
         /// <summary>
         /// Gelen varlığı günceller.
         /// </summary>

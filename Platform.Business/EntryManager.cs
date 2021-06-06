@@ -29,8 +29,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList()
         {
-            return _entryRepository.GetAll()
-                .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
+            return _entryRepository.EntryList()
                 .OrderByDescending(x => x.EntryID)
                 .ToList();
         }
@@ -41,8 +40,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
         {
-            return _entryRepository.GetAll(expression)
-                .Where(x => x.IsValid == true && x.Tag.IsValid == true && x.Person.IsValid == true)
+            return _entryRepository.EntryList(expression)
                 .OrderByDescending(x => x.EntryID)
                 .ToList();
         }

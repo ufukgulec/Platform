@@ -13,12 +13,15 @@ namespace Platform.MvcUI.Controllers
 {
     public class TagController : Controller
     {
-        readonly IGenericService<Tag> tagService = new GenericManager<Tag>(new EfGenericRepository<Tag>());
-        //CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
+        ITagService tagService;
+        public TagController(ITagService tagService)
+        {
+            this.tagService = tagService;
+        }
         public ActionResult Index()
         {
-            
-            var tagList = tagService.GetAll().OrderByDescending(x=>x.Entries.Count).ToList();
+
+            var tagList = tagService.TagList();
             return View(tagList);
         }
         [HttpPost]

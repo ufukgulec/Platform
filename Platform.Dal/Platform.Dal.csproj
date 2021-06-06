@@ -56,12 +56,14 @@
     <Compile Include="Abstract\IEntryRepository.cs" />
     <Compile Include="Abstract\IGenericRepository.cs" />
     <Compile Include="Abstract\IReplyRepository.cs" />
+    <Compile Include="Abstract\ITagRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\PlatformContext.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfEntryRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfGenericRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfLikeRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfPersonRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfReplyRepository.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\EfTagRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -73,6 +75,10 @@
     <ProjectReference Include="..\Platform.Entities\Platform.Entities.csproj">
       <Project>{182D441D-2AB7-4586-B24C-0335D4A8F2CD}</Project>
       <Name>Platform.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform.Interfaces\Platform.Interfaces.csproj">
+      <Project>{3A5B8244-9C1C-435A-BCD6-4B0779770921}</Project>
+      <Name>Platform.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -50,7 +50,7 @@ namespace Platform.Business
         /// Generic veri listesi döner.
         /// </summary>
         /// <returns>Entries,Tags,Likes</returns>
-        public List<T> GetAll()
+        public IQueryable<T> GetAll()
         {
             return _genericRepository.GetAll();
         }
@@ -59,7 +59,7 @@ namespace Platform.Business
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID</param>
         /// <returns>Entries,Tags,Likes</returns>
-        public List<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
             return _genericRepository.GetAll(expression);
         }

@@ -34,13 +34,13 @@ namespace Platform.Dal.Abstract
         /// Tüm T listesi
         /// </summary>
         /// <returns>T List</returns>
-        List<T> GetAll();
+        IQueryable<T> GetAll();
         /// <summary>
         /// Filter List T
         /// </summary>
         /// <param name="expression"></param>
         /// <returns>T List</returns>
-        List<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
 
         /// <summary>
         /// T varlığını dönderir

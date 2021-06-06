@@ -31,7 +31,7 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
 
         public int Count()
         {
-            return GetAll().Count;
+            return GetAll().Count();
         }
 
         public T Get(int id)
@@ -39,19 +39,14 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             return _context.Set<T>().Find(id);
         }
 
-        public List<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return _context.Set<T>().AsNoTracking();
         }
 
-        public List<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
-            return _context.Set<T>().AsNoTracking().Where(expression).ToList();
-        }
-
-        public List<T> GetAll(string tablename1, string tablename2)
-        {
-            return _context.Set<T>().Include(tablename1).Include(tablename2).AsNoTracking().ToList();
+            return _context.Set<T>().AsNoTracking().Where(expression);
         }
 
         public IQueryable<TResult> GetAllSelect<TResult>(Expression<Func<T, TResult>> select)

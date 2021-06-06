@@ -19,7 +19,6 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         {
 
         }
-
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>
@@ -40,6 +39,15 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
             _context.Likes.RemoveRange(_context.Likes.Where(x => x.EntryID == entry.EntryID).ToList());//Entry-Like
             _context.Entries.Remove(entry);
             return _context.SaveChanges() > 0;
+        }
+        public List<Entry> EntryList()
+        {
+            return GetAll().Include(x => x.Tag).ToList();
+        }
+
+        public List<Entry> EntryList(Expression<Func<Entry, bool>> expression)
+        {
+            return GetAll(expression).Include(x => x.Tag).ToList();
         }
     }
 }

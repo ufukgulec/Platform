@@ -6,35 +6,39 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Platform.Dal.Abstract
+namespace Platform.Interfaces
 {
-    /// <summary>
-    /// Kullandığı arabirim sınıfı => IGenericRepository
-    /// </summary>
-    public interface IEntryRepository : IGenericRepository<Entry>
+    public interface ITagService : IGenericService<Tag>
     {
         /// <summary>
         /// Tag List
         /// </summary>
         /// <returns>Tags</returns>
-        List<Entry> EntryList();
+        List<Tag> TagList();
         /// <summary>
         /// IsValid değeri(Tag.isValid) TRUE olan ve koşula göre Tag listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.TagID>0</param>
         /// <returns>Tags</returns>
-        List<Entry> EntryList(Expression<Func<Entry, bool>> expression);
+        List<Tag> TagList(Expression<Func<Tag, bool>> expression);
         /// <summary>
-        /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
+        /// Id'ye göre Tag ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>
-        /// <param name="id">EntryID</param>
+        /// <param name="id">TagID</param>
         /// <returns>True/False</returns>
         bool Delete(int id);
         /// <summary>
-        /// Gelen varlığını siler.
+        /// Gelen varlığı siler.
         /// </summary>
-        /// <param name="entity">Entry</param>
+        /// <param name="tags">Tag</param>
         /// <returns>True/False</returns>
-        bool Delete(Entry entry);
+        bool Delete(Tag tag);
+        /// <summary>
+        /// Popular Tag List
+        /// </summary>
+        /// <param name="value">Kaç tane çekmek istiyorsun</param>
+        /// <returns></returns>
+        List<Tag> PopularTags();
+
     }
 }
