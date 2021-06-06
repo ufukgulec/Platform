@@ -35,7 +35,7 @@ namespace Platform.Business
 
         public List<Tag> TagList()
         {
-            return cacheFonksiyon.TagsGet().OrderByDescending(x => x.Entries.Count).ToList();
+            return _tagRepository.GetAll().OrderByDescending(x => x.Entries.Count).ToList();
         }
 
         public List<Tag> TagList(Expression<Func<Tag, bool>> expression)
