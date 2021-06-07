@@ -21,7 +21,7 @@ namespace Platform.MvcUI.Controllers
         public ActionResult Index()
         {
 
-            var tagList = tagService.TagList();
+            var tagList = tagService.List();
             return View(tagList);
         }
         [HttpPost]

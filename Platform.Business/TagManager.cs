@@ -13,7 +13,7 @@ namespace Platform.Business
     public class TagManager : GenericManager<Tag>, ITagService
     {
         ITagRepository _tagRepository;
-        CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
+        //CacheFonksiyon cacheFonksiyon = new CacheFonksiyon();
         public TagManager(ITagRepository tagRepository) : base(tagRepository)
         {
             _tagRepository = tagRepository;
@@ -30,17 +30,17 @@ namespace Platform.Business
 
         public List<Tag> PopularTags()
         {
-            return _tagRepository.GetAll().Take(10).ToList();
+            return _tagRepository.List().Take(10).ToList();
         }
 
-        public List<Tag> TagList()
+        public List<Tag> List()
         {
-            return _tagRepository.GetAll().OrderByDescending(x => x.Entries.Count).ToList();
+            return _tagRepository.List();
         }
 
-        public List<Tag> TagList(Expression<Func<Tag, bool>> expression)
+        public List<Tag> List(Expression<Func<Tag, bool>> expression)
         {
-            return _tagRepository.GetAll(expression).ToList();
+            return _tagRepository.List(expression);
         }
     }
 }

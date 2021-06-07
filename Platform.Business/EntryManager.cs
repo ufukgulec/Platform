@@ -29,9 +29,7 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> List()
         {
-            var list = _entryRepository.List()
-                .OrderByDescending(x => x.EntryID)
-                .ToList();
+            var list = _entryRepository.List();
             return list;
         }
         /// <summary>
@@ -41,9 +39,8 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> List(Expression<Func<Entry, bool>> expression)
         {
-            return _entryRepository.List(expression)
-                .OrderByDescending(x => x.EntryID)
-                .ToList();
+            var list = _entryRepository.List(expression);
+            return list;
         }
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
@@ -80,17 +77,17 @@ namespace Platform.Business
         /// <returns>Entries</returns>
         public List<Entry> TodayEntries()
         {
-            return List()
+            return _entryRepository.List()
                 .Where(x => x.EntryDate == DateTime.Now.Date)
                 .ToList();
         }
 
         public List<Entry> PopularEntries(int a)
         {
-            return List()
+            var list = _entryRepository.List()
                 .OrderByDescending(x => x.Likes.Count)
-                .Take(a)
-                .ToList();
+                .Take(a).ToList();
+            return list;
         }
     }
 }

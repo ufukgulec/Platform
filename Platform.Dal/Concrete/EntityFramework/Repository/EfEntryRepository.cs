@@ -42,13 +42,13 @@ namespace Platform.Dal.Concrete.EntityFramework.Repository
         }
         public List<Entry> List()
         {
-            var list = GetAll().Include(x => x.Tag).ToList();
+            var list = GetAll().Include(x => x.Tag).OrderByDescending(x => x.EntryID).ToList();
             return list;
         }
 
         public List<Entry> List(Expression<Func<Entry, bool>> expression)
         {
-            var list = GetAll(expression).Include(x => x.Tag).ToList();
+            var list = GetAll(expression).Include(x => x.Tag).OrderByDescending(x => x.EntryID).ToList();
             return list;
         }
     }

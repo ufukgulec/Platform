@@ -14,13 +14,13 @@ namespace Platform.Interfaces
         /// Tag List
         /// </summary>
         /// <returns>Tags</returns>
-        List<Tag> TagList();
+        List<Tag> List();
         /// <summary>
         /// IsValid değeri(Tag.isValid) TRUE olan ve koşula göre Tag listesini döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.TagID>0</param>
         /// <returns>Tags</returns>
-        List<Tag> TagList(Expression<Func<Tag, bool>> expression);
+        List<Tag> List(Expression<Func<Tag, bool>> expression);
         /// <summary>
         /// Id'ye göre Tag ve bağlı olduğu tabloları(Reply,Like) siler.
         /// </summary>
