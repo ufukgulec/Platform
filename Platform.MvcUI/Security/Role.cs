@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.Security;
 using System.Data.Entity;
 using Platform.Interfaces;
+using Platform.Business;
+using Platform.Dal.Concrete.EntityFramework.Repository;
 
 namespace Platform.MvcUI.Security
 {
     public class Role : RoleProvider
     {
-        readonly IPersonService PersonService;
+        readonly IPersonService PersonService = new PersonManager(new EfPersonRepository());
         public override string ApplicationName
         {
             get { throw new NotImplementedException(); }
