@@ -9,6 +9,11 @@ namespace Platform.Interfaces
 {
     public interface ILikeService : IGenericService<Like>
     {
-
+        /// <summary>
+        /// Entry Like yoksa ekler varsa siler.
+        /// </summary>
+        /// <param name="EntryID">Beğenilen entry'nin Id'si</param>
+        /// <param name="PersonID">Beğenen person'un Id'si</param>
+        Like LikeOrDislike(int EntryID, int PersonID);
     }
 }

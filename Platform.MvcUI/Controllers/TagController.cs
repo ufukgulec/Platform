@@ -27,23 +27,16 @@ namespace Platform.MvcUI.Controllers
         [HttpPost]
         public ActionResult TagAdd(Tag tag)
         {
-            tag.IsValid = true;
-            tagService.Add(tag);
-
+            tagService.New(tag);
             return RedirectToAction("Index");
         }
         public PartialViewResult MostPopularTags()
         {
             return PartialView("MostPopularTags", tagService.PopularTags());
         }
-
-        /// <summary>
-        /// Entry Post işleminde konu seçimi için
-        /// </summary>
-        /// <returns></returns>
         public PartialViewResult TagSelectList()
         {
-            return PartialView("TagSelectList", tagService.GetAll());
+            return PartialView("TagSelectList", tagService.List());
         }
     }
 }

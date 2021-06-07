@@ -17,5 +17,25 @@ namespace Platform.Business
         {
             _likeRepository = likeRepository;
         }
+
+        public Like LikeOrDislike(int EntryID, int PersonID)
+        {
+            var controlLike = _likeRepository.GetAll().Where(x => x.PersonID == PersonID && x.EntryID == EntryID).FirstOrDefault();
+            if (controlLike != null)
+            {
+                _likeRepository.Remove(controlLike.LikeID);
+                return null;
+            }
+            else
+            {
+                Like like = new Like
+                {
+                    LikeDate = DateTime.Now.Date,
+                    EntryID = EntryID,
+                    PersonID = PersonID
+                };
+                return _likeRepository.Add(like);
+            }
+        }
     }
 }

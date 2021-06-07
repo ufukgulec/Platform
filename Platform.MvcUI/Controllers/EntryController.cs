@@ -57,7 +57,6 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularEntries()
         {
-            Thread.Sleep(2000);
             return PartialView("MostPopularEntries", entryService.PopularEntries(5));
         }
         public PartialViewResult Post()
@@ -67,8 +66,6 @@ namespace Platform.MvcUI.Controllers
         [HttpPost]
         public ActionResult Post(Entry entry)
         {
-            entry.EntryDate = DateTime.Now.Date;
-            entry.IsValid = true;
             entryService.Post(entry);
             return RedirectToAction("Index");
         }
@@ -79,24 +76,7 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult Like(int id)
         {
-            var user = personService.GetAll().Where(x => x.Username == HttpContext.User.Identity.Name).FirstOrDefault();
-            var controlLike = likeService.GetAll().Where(x => x.PersonID == user.PersonID && x.EntryID == id).FirstOrDefault();
-            if (controlLike != null)
-            {
-                likeService.Remove(controlLike.LikeID);
-            }
-            else
-            {
-                Like like = new Like
-                {
-                    LikeDate = DateTime.Now.Date,
-                    EntryID = id,
-                    PersonID = user.PersonID
-                };
-                likeService.Add(like);
-            }
-
-
+            likeService.LikeOrDislike(id, personService.FindByName(HttpContext.User.Identity.Name).PersonID);
             return PartialView(entryService.Get(id));
         }
     }

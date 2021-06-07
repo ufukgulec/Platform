@@ -92,5 +92,11 @@ namespace Platform.Business
             person.PersonTypeID = 1;
             return _personRepository.Add(person);
         }
+
+        public Person FindByName(string username)
+        {
+            var person = _personRepository.GetAll().Where(x => x.Username == username).FirstOrDefault();
+            return person;
+        }
     }
 }

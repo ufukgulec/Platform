@@ -39,6 +39,12 @@ namespace Platform.Interfaces
         /// <param name="value">Kaç tane çekmek istiyorsun</param>
         /// <returns>Tag List</returns>
         List<Tag> PopularTags();
+        /// <summary>
+        /// Yeni Tag oluşturur.
+        /// </summary>
+        /// <param name="tag">Tag</param>
+        /// <returns>Tag</returns>
+        Tag New(Tag tag);
 
     }
 }

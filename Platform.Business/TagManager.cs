@@ -42,5 +42,11 @@ namespace Platform.Business
         {
             return _tagRepository.List(expression);
         }
+
+        public Tag New(Tag tag)
+        {
+            tag.IsValid = true;
+            return _tagRepository.Add(tag);
+        }
     }
 }

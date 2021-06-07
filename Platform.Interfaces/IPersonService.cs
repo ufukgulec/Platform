@@ -45,5 +45,11 @@ namespace Platform.Interfaces
         /// <returns></returns>
         PocoPerson Login(string Username, string password);
         Person Register(Person person);
+        /// <summary>
+        /// İsme göre kullanıcı bulur.
+        /// </summary>
+        /// <param name="username">PersonName</param>
+        /// <returns>Person</returns>
+        Person FindByName(string username);
     }
 }

@@ -39,8 +39,8 @@ namespace Platform.Interfaces
         /// <summary>
         /// Entrytitle, EntryArticle, PersonID ve TagID olarak gelen varlığı Generic Add metoduna yönlendirir.
         /// </summary>
-        /// <param name="entry"></param>
-        /// <returns></returns>
+        /// <param name="entry">Entry</param>
+        /// <returns>Entry</returns>
         Entry Post(Entry entry);
         /// <summary>
         /// Datetime.Now.Date e eşit olan (Bugun) Entry listesi
