@@ -20,10 +20,12 @@ namespace Platform.MvcUI.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Login(ViewPersonLogin person)
         {
@@ -53,10 +55,12 @@ namespace Platform.MvcUI.Controllers
             return View(person);
 
         }
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Register(Person person)
         {

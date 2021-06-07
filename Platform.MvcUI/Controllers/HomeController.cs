@@ -13,7 +13,6 @@ using System.Web.Security;
 
 namespace Platform.MvcUI.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         readonly IEntryService entryService;
