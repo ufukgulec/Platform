@@ -14,15 +14,15 @@ namespace Platform.Interfaces
     public interface IEntryService : IGenericService<Entry>
     {
         /// <summary>
-        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan Entry listesini döner.
+        /// EntryID'ye göre azalan sıralanmış Entry Listesi döner.
         /// </summary>
-        /// <returns>Entries</returns>
+        /// <returns>Entry List</returns>
         List<Entry> List();
         /// <summary>
-        /// IsValid değeri(Tag.isValid, Entry.isValid, Person.isValid) TRUE olan ve koşula göre Entry listesini döner.
+        /// EntryID'ye göre azalan sıralanmış ve koşula göre Entry Listesi döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.EntryID>0</param>
-        /// <returns>Entries</returns>
+        /// <returns>Entry List</returns>
         List<Entry> List(Expression<Func<Entry, bool>> expression);
         /// <summary>
         /// Id'ye göre Entry ve bağlı olduğu tabloları(Reply,Like) siler.
@@ -48,10 +48,10 @@ namespace Platform.Interfaces
         /// <returns>Entries</returns>
         List<Entry> TodayEntries();
         /// <summary>
-        /// Popular Entry List
+        /// EntryID'ye ve Entry.Like.Count'a göre azalan sıralanmış Entry Listesi döner.
         /// </summary>
-        /// <param name="value">Kaç tane çekmek istiyorsun</param>
-        /// <returns></returns>
+        /// <param name="value">Kaç tane çekmek istiyorsun ?</param>
+        /// <returns>Entry List</returns>
         List<Entry> PopularEntries(int a);
 
     }

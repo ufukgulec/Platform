@@ -34,8 +34,7 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult MostPopularTags()
         {
-            Thread.Sleep(2000);
-            return PartialView("MostPopularTags", tagService.GetAll().OrderByDescending(x => x.Entries.Count).Take(5).ToList());
+            return PartialView("MostPopularTags", tagService.PopularTags());
         }
 
         /// <summary>

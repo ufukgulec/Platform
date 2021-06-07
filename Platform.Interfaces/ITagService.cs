@@ -11,15 +11,15 @@ namespace Platform.Interfaces
     public interface ITagService : IGenericService<Tag>
     {
         /// <summary>
-        /// Tag List
+        /// Entry sayısına göre azalan sıralanmış Tag listesi döner.
         /// </summary>
-        /// <returns>Tags</returns>
+        /// <returns>Tag List</returns>
         List<Tag> List();
         /// <summary>
-        /// IsValid değeri(Tag.isValid) TRUE olan ve koşula göre Tag listesini döner.
+        /// Entry sayısına göre azalan sıralanmış ve koşula göre Tag listesi döner.
         /// </summary>
         /// <param name="expression">Koşul x=>x.TagID>0</param>
-        /// <returns>Tags</returns>
+        /// <returns>Tag List</returns>
         List<Tag> List(Expression<Func<Tag, bool>> expression);
         /// <summary>
         /// Id'ye göre Tag ve bağlı olduğu tabloları(Reply,Like) siler.
@@ -34,10 +34,10 @@ namespace Platform.Interfaces
         /// <returns>True/False</returns>
         bool Delete(Tag tag);
         /// <summary>
-        /// Popular Tag List
+        /// Entry sayısına göre azalan sıralanmış ve 5 adet Tag döner.
         /// </summary>
         /// <param name="value">Kaç tane çekmek istiyorsun</param>
-        /// <returns></returns>
+        /// <returns>Tag List</returns>
         List<Tag> PopularTags();
 
     }

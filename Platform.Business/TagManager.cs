@@ -30,7 +30,7 @@ namespace Platform.Business
 
         public List<Tag> PopularTags()
         {
-            return _tagRepository.List().Take(10).ToList();
+            return _tagRepository.List().Take(5).ToList();
         }
 
         public List<Tag> List()
