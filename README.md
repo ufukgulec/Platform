@@ -1,3 +1,8 @@
+<style>
+.img{
+  width=300px;
+  }
+</style>
 # Platform
 <h2>Kurumsal katmanlı mimaride Mvc5 projesidir.</h2>
 <p align="center">
