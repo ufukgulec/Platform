@@ -36,9 +36,10 @@ namespace Platform.MvcUI.Controllers
                     var user = personService.Login(person.Username, person.Password);
                     if (user != null)
                     {
-                        FormsAuthentication.SetAuthCookie(user.Username, false);
+                        FormsAuthentication.SetAuthCookie(user.PersonID.ToString(), false);
                         Session["user-photo"] = user.PersonImgUrl;
                         Session["PersonID"] = user.PersonID;
+                        Session["username"] = user.Username;
                         return RedirectToAction("Index", "Home");
                     }
                 }

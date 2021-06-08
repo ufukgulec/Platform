@@ -61,6 +61,9 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult Post()
         {
+            ViewBag.username = personService.Get(Convert.ToInt32(HttpContext.User.Identity.Name)).Username;
+            ViewBag.personID = personService.Get(Convert.ToInt32(HttpContext.User.Identity.Name)).PersonID;
+            ViewBag.personImg = personService.Get(Convert.ToInt32(HttpContext.User.Identity.Name)).PersonImgUrl;
             return PartialView();
         }
         [HttpPost]
@@ -76,7 +79,7 @@ namespace Platform.MvcUI.Controllers
         }
         public PartialViewResult Like(int id)
         {
-            likeService.LikeOrDislike(id, personService.FindByName(HttpContext.User.Identity.Name).PersonID);
+            likeService.LikeOrDislike(id, Convert.ToInt32(HttpContext.User.Identity.Name));
             return PartialView(entryService.Get(id));
         }
     }

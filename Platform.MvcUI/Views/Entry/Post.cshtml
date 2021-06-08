@@ -1,13 +1,14 @@
-﻿<div class="row post light-bordered">
+﻿@using Platform.Entities.Models
+<div class="row post light-bordered">
     <div class="col-3 user-photo">
-        <img class="img-thumbnail" src="@Session["user-photo"]" alt="" style="width:100%">
+        <img class="img-thumbnail" src="@ViewBag.personImg" alt="" style="width:100%">
     </div>
     <div class="col-9 post-detail">
         <form method="post" id="entry-post">
             <div class="row">
                 <div class="col">
                     <strong>Write something</strong>
-                    <small><a class="post-user" href=""> @@@HttpContext.Current.User.Identity.Name</a></small>
+                    <small><a class="post-user" href=""> @@@ViewBag.username </a></small>
                 </div>
                 <div class="col post-tag" style="text-align:right">
                     <div id="tag-select-list">
@@ -17,7 +18,7 @@
             </div>
             <hr />
             <div class="row post-body">
-                <input name="PersonID" hidden value="@Session["PersonID"]" />
+                <input name="PersonID" hidden value="@ViewBag.PersonID " />
                 <div class="col post-article">
                     <div class="mb-3">
                         <input name="EntryTitle" type="text" class="form-control" placeholder="Entry Title" />

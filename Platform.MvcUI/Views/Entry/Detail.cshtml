@@ -16,7 +16,7 @@
                 <div class="col-9 entry-content">
                     <div class="row entry-top">
                         <div class="col">
-                            <strong><a class="entry-header" href="">@Model.Tag.TagName</a></strong>
+                            <strong><a class="entry-header" href="">@Model.EntryTitle</a></strong>
                             <small><a class="entry-user" href=""> @Model.Person.Username</a></small>
                         </div>
                         <div class="col entry-tag" style="text-align:right">
@@ -72,9 +72,30 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="">
-                                <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
-                            </a>
+                            @if (Model.Likes.Count > 0)
+                            {
+                                foreach (var like in Model.Likes)
+                                {
+                                    if (like.Person.PersonID.ToString() == HttpContext.Current.User.Identity.Name)
+                                    {
+                                        <a href="javascript:void(0);" id="post-like-@Model.EntryID" onclick="PostLike(@Model.EntryID)">
+                                            <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0);" id="post-like-@Model.EntryID" onclick="PostLike(@Model.EntryID)">
+                                            <i class='bx bx-heart bx-sm bx-tada-hover'></i>
+                                        </a>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <a href="javascript:void(0);" id="post-like-@Model.EntryID" onclick="PostLike(@Model.EntryID)">
+                                    <i class='bx bx-heart bx-sm bx-tada-hover'></i>
+                                </a>
+                            }
                         </div>
                         <div class="col-4">
                             <a href="">

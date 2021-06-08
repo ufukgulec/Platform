@@ -6,83 +6,87 @@
 }
 <div class="row home-entries">
     <div class="col">
-        @foreach (var item in Model)
-        {
-            <div class="entry row light-bordered">
-                <div class="col-3 entry-photo">
-                    <img class="img-thumbnail" src="@item.Person.PersonImgUrl" alt="@item.Person.PersonName" style="width:100%">
-                </div>
-                <div class="col-9 entry-detail">
-                    <div class="row">
-                        <div class="col">
-                            <strong><a class="entry-header" href="">@item.EntryTitle</a></strong>
-                            <small><a class="entry-user" href=""> @@@item.Person.Username</a></small>
-                        </div>
-                        <div class="col entry-tag" style="text-align:right">
-                            <strong>
-                                <a class="entry-header" href="">
-                                    <i class='bx bxs-tag-alt'></i>
-                                    <span class="align-span">@item.Tag.TagName</span>
-                                </a>
-                            </strong>
-                        </div>
+        <div id="entry-list-area">
+            <!--Jquery Entry list-->
+        </div>
+        @*@foreach (var item in Model)
+            {
+                <div class="entry row light-bordered">
+                    <div class="col-3 entry-photo">
+                        <img class="img-thumbnail" src="@item.Person.PersonImgUrl" alt="@item.Person.PersonName" style="width:100%">
                     </div>
-                    <hr />
-                    <div class="row entry-body">
-                        <div class="col entry-article">
-                            @if (item.EntryArticle.Length > 297)
-                            {
-                                <p>@item.EntryArticle.Substring(0, 297)<span id="dots-@item.EntryID">...</span><span style="display:none" class="more" id="more-@item.EntryID">@item.EntryArticle.Substring(297)</span></p>
-                                <button onclick="ReadMore(@item.EntryID)" id="myBtn-@item.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
-                            }
-                            else
-                            {
-                                <p>@item.EntryArticle</p>
-                            }
-
-
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row entry-counters">
-                        <div class="col-6">
-                            <div class="row text-center">
-                                <div class="col-6 entry-like-count">
-                                    <i class='bx bx-heart bx-sm'></i>
-                                    <span class="align-span">@item.Likes.Count</span>
-                                </div>
-                                <div class="col-6 entry-reply-count">
-                                    <i class='bx bx-share bx-sm'></i>
-                                    <span class="align-span">@item.Replies.Count</span>
-                                </div>
+                    <div class="col-9 entry-detail">
+                        <div class="row">
+                            <div class="col">
+                                <strong><a class="entry-header" href="">@item.EntryTitle</a></strong>
+                                <small><a class="entry-user" href=""> @@@item.Person.Username</a></small>
+                            </div>
+                            <div class="col entry-tag" style="text-align:right">
+                                <strong>
+                                    <a class="entry-header" href="">
+                                        <i class='bx bxs-tag-alt'></i>
+                                        <span class="align-span">@item.Tag.TagName</span>
+                                    </a>
+                                </strong>
                             </div>
                         </div>
-                        <div class="col-6 entry-date" style="text-align:right">
-                            <i class='bx bx-calendar bx-sm'></i>
-                            @{DateTime dt = (DateTime)item.EntryDate;}
-                            <span class="align-span">@dt.ToString("dd.MM.yyyy")</span>
+                        <hr />
+                        <div class="row entry-body">
+                            <div class="col entry-article">
+                                @if (item.EntryArticle.Length > 297)
+                                {
+                                    <p>@item.EntryArticle.Substring(0, 297)<span id="dots-@item.EntryID">...</span><span style="display:none" class="more" id="more-@item.EntryID">@item.EntryArticle.Substring(297)</span></p>
+                                    <button onclick="ReadMore(@item.EntryID)" id="myBtn-@item.EntryID" class="btn btn-primary btn-sm float-end">Devamını oku</button>
+                                }
+                                else
+                                {
+                                    <p>@item.EntryArticle</p>
+                                }
+
+
+                            </div>
                         </div>
-                    </div>
-                    <hr />
-                    <div class="row entry-button text-center">
-                        <div class="col-4">
-                            <a href="">
-                                <i class='bx bxs-share bx-sm bx-tada-hover'></i>
-                            </a>
+                        <br />
+                        <div class="row entry-counters">
+                            <div class="col-6">
+                                <div class="row text-center">
+                                    <div class="col-6 entry-like-count">
+                                        <i class='bx bx-heart bx-sm'></i>
+                                        <span class="align-span">@item.Likes.Count</span>
+                                    </div>
+                                    <div class="col-6 entry-reply-count">
+                                        <i class='bx bx-share bx-sm'></i>
+                                        <span class="align-span">@item.Replies.Count</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 entry-date" style="text-align:right">
+                                <i class='bx bx-calendar bx-sm'></i>
+                                @{DateTime dt = (DateTime)item.EntryDate;}
+                                <span class="align-span">@dt.ToString("dd.MM.yyyy")</span>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <a href="">
-                                <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="">
-                                <i class='bx bx-dots-vertical bx-sm bx-tada-hover'></i>
-                            </a>
+                        <hr />
+                        <div class="row entry-button text-center">
+                            <div class="col-4">
+                                <a href="">
+                                    <i class='bx bxs-share bx-sm bx-tada-hover'></i>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="">
+                                    <i class='bx bxs-heart bx-sm bx-tada-hover'></i>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="">
+                                    <i class='bx bx-dots-vertical bx-sm bx-tada-hover'></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
+            }*@
+
     </div>
 </div>
