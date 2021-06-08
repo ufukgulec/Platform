@@ -3,11 +3,11 @@
 <p align="center">
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-login-page.png" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-home.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-home.png" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-modal-post.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-modal-post.png" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-tag.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-tag.png" width="460" height="300">
   <hr/>
   <h3>Dark Theme</h3>
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-dark-home.png?raw=true" style="width:300px">
