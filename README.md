@@ -1,5 +1,5 @@
 <style>
-.img{
+img{
   width=300px;
   }
 </style>
