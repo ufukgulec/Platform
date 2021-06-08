@@ -1,13 +1,13 @@
 # Platform
 <h2>Kurumsal katmanlı mimaride Mvc5 projesidir.</h2>
-<p style="text-align:center">
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-login-page.png" style="width:300px">
+<p align="center">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-login-page.png" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-home.png?raw=true" style="width:300px">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-home.png?raw=true" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-modal-post.png?raw=true" style="width:300px">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-modal-post.png?raw=true" width="460" height="300">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-tag.png?raw=true" style="width:300px">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-tag.png?raw=true" width="460" height="300">
   <hr/>
   <h3>Dark Theme</h3>
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-dark-home.png?raw=true" style="width:300px">
