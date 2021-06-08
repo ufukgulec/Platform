@@ -15,15 +15,15 @@
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-dark-tag.png?raw=true">
   <hr/>
   <h3>Mobile Responsive Light Theme</h3>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-light-home.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-light-home.png?raw=true" width="460" >
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-modal-post.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-modal-post.png?raw=true" width="460">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-tag-index.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-tag-index.png?raw=true" width="460">
   <hr/>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-entry-detail.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-entry-detail.png?raw=true" width="460">
   <hr/>
   <h3>Mobile Responsive Dark Theme</h3>
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-dark-home.png?raw=true" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-dark-home.png?raw=true" width="460" >
   <hr/>
 </p>
