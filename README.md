@@ -1,7 +1,7 @@
 # Platform
 <h2>Kurumsal katmanlı mimaride Mvc5 projesidir.</h2>
 <p align="center">
-  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-login-page.png" width="460" height="300">
+  <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-login-page.png" width="460">
   <hr/>
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/desktop-light-home.png" width="460" height="300">
   <hr/>
