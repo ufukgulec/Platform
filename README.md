@@ -27,4 +27,3 @@
   <img src="https://github.com/ufukgulec/Platform/blob/master/AppImages/mobil-dark-home.png?raw=true" style="width:300px">
   <hr/>
 </p>
-Format:![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
